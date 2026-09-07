@@ -1,0 +1,28 @@
+py_spiral_matrix
+
+Assignment
+Write a function that generates an n x n 2D matrix filled with numbers
+from 1 to n^2 in clockwise spiral order.
+
+The spiral starts at the top-left cell (0, 0) moving right, then down,
+then left, then up, continuing inwards.
+
+Function signature
+def generate_spiral(n: int) -> list[list[int]]:
+
+Examples
+Input
+generate_spiral(3)
+Output
+[[1, 2, 3], [8, 9, 4], [7, 6, 5]]
+Input
+generate_spiral(1)
+Output
+[[1]]
+
+Similar to (probably): LeetCode 54. Spiral Matrix (same clockwise
+spiral traversal order, but LC54 reads an existing matrix out in
+spiral order while this one fills a fresh matrix with 1..n^2 in that
+order -- that generating variant is LeetCode 59. Spiral Matrix II,
+which isn't in this repo's leetcode/ set).
+Reference: question/leetcode/lc054_spiral_matrix.txt

@@ -1,8 +1,8 @@
 # 42_python_exam
 
 Practice repo for 42 School's Exam Rank 05 / 06 under the Python
-curriculum, plus the original LeetCode problems that exam3/exam4 turn
-out to be reskins of.
+curriculum, plus the original LeetCode problems that exam3/exam4/exam5
+turn out to be reskins of.
 
 ---
 
@@ -10,11 +10,11 @@ out to be reskins of.
 
 ### Background
 
-No public source documents Exam Rank 05 / 06 for 42's Python-based
-curriculum yet. The one unofficial tracker site (42exam.net) is
-currently down, and every GitHub repository claiming to cover "exam
-rank 05/06" turns out to be leftover material from the old C++
-curriculum.
+42's Python-based Exam Rank 05 is now published by the unofficial
+tracker site rank05.42exam.net (part of the 42exam.net family used for
+exam3/exam4 too). Rank 06 still has no public source. Every GitHub
+repository claiming to cover "exam rank 05/06" beyond that tends to be
+leftover material from the old C++ curriculum.
 
 ### What's in here
 
@@ -22,17 +22,19 @@ curriculum.
   `42_exam_rank04_simulator_python` repos, rewritten to run entirely
   without `sorted()` / `.sort()` / `set()` / `heapq` /
   `Counter`/`deque` — the same constraints the real exam enforces.
-- Since exam3/exam4's problems are, more often than not, well-known
-  LeetCode problems renamed and lightly reworded, the LeetCode
-  problems they appear to be based on are collected separately under
-  `leetcode/`, with each exam question file cross-referencing which
-  LeetCode problem it's likely adapted from (see the mapping table
-  below).
+- exam5's 7 subjects, pulled from rank05.42exam.net and rewritten under
+  the same no-banned-built-ins constraint.
+- Since exam3/exam4/exam5's problems are, more often than not,
+  well-known LeetCode problems renamed and lightly reworded, the
+  LeetCode problems they appear to be based on are collected separately
+  under `leetcode/`, with each exam question file cross-referencing
+  which LeetCode problem it's likely adapted from (see the mapping
+  table below).
 - On top of that, `leetcode/` also includes the full **NeetCode 150**
   list (all 150 problems, minus the 7 that already overlapped with the
   exam3/4 mapping above), worked the same way (no banned built-ins), on
-  the assumption that Rank 5/6 follows the same "reskinned LeetCode"
-  pattern as Rank 3/4. 7 of those 150 are premium-only LeetCode
+  the assumption that Rank 6 follows the same "reskinned LeetCode"
+  pattern as Rank 3/4/5. 7 of those 150 are premium-only LeetCode
   problems (Encode and Decode Strings, Walls and Gates, Graph Valid
   Tree, Number of Connected Components, Alien Dictionary, Meeting
   Rooms, Meeting Rooms II) — their `question/` files are written from
@@ -41,23 +43,26 @@ curriculum.
 
 ### Directory layout
 
-Subfolders are split by source (`exam3` / `exam4` / `leetcode`).
-`exam3` uses `level1`-`level6`, `exam4` uses `level1`-`level3` — these
-are two different difficulty scales from two different source repos,
-not merged into one numbering.
+Subfolders are split by source (`exam3` / `exam4` / `exam5` /
+`leetcode`). `exam3` uses `level1`-`level6`, `exam4` and `exam5` use
+`level1`-`level3` — these are different difficulty scales from
+different source sites, not merged into one numbering.
 
 ```
 Ans/
   exam3/level1-level6/<problem>.py   # 14 exam3 problems, no banned built-ins
   exam4/level1-level3/<problem>.py   # 7 exam4 problems, same rule
+  exam5/level1-level3/<problem>.py   # 7 exam5 problems, same rule
   leetcode/<problem>.py               # LeetCode-sourced problems, same rule
 question/
   exam3/level1-level6/<problem>.txt
   exam4/level1-level3/<problem>.txt
+  exam5/level1-level3/<problem>.txt
   leetcode/<problem>.txt              # "Based on: LeetCode ###. Title" noted
 pra/
   exam3/level1-level6/py_<problem>.py
   exam4/level1-level3/py_<problem>.py
+  exam5/level1-level3/py_<problem>.py
   leetcode/py_<problem>.py
   _template.py                         # copy this to start a new problem
 ```
@@ -98,6 +103,7 @@ the ban applies to the solution itself, not to test-harness code.
 ```sh
 python3 pra/exam3/level1/py_cryptic_sorter.py
 python3 pra/exam4/level2/py_merge_sorted_list.py
+python3 pra/exam5/level2/py_island_matrix_counter.py
 python3 pra/leetcode/lc001_two_sum.py
 ```
 
@@ -129,6 +135,13 @@ and confirm every case prints `[OK]`.
 | exam4/level2 | palindrome_partitioner | **132. Palindrome Partitioning II** | high |
 | exam4/level2 | sliding_window_maximium | **239. Sliding Window Maximum** | high |
 | exam4/level3 | package_dependency_resolver | **210. Course Schedule II** (+ the wave tie-break resembles 1203.) | high |
+| exam5/level1 | compress_decompress | none found (loosely related to 443. String Compression) | low |
+| exam5/level1 | spiral_matrix | **54. Spiral Matrix** (generating variant is 59. Spiral Matrix II, not in this repo) | high |
+| exam5/level2 | graph_cycle_detector | **207. Course Schedule** | high |
+| exam5/level2 | schedule_meetings | **253. Meeting Rooms II** (also returns per-room assignments) | high |
+| exam5/level2 | island_matrix_counter | **200. Number of Islands** | high |
+| exam5/level3 | prism_detector | **79. Word Search** (8-directional variant, returns all matches + direction codes) | medium |
+| exam5/level3 | word_ladder | **127. Word Ladder** | high |
 
 Rows marked "low"/"none found" have no file under `leetcode/` since no
 real problem number was found — those aren't guessed or invented.
@@ -139,30 +152,34 @@ real problem number was found — those aren't guessed or invented.
 
 ### 背景
 
-42のPythonカリキュラムにおけるExam Rank 05/06の情報は、今のところネット上のどこにも公開されていません。唯一の非公式まとめサイト（42exam.net）は現在ダウンしており、GitHub上で「exam rank 05/06」を名乗るリポジトリは調べる限り全て旧C++カリキュラムの名残でした。
+42のPythonカリキュラムにおけるExam Rank 05は、非公式まとめサイト（42exam.netファミリーのrank05.42exam.net、exam3/exam4と同系列のサイト）で現在公開されています。Rank 06はまだ公開情報がありません。それ以外でGitHub上で「exam rank 05/06」を名乗るリポジトリは調べる限り旧C++カリキュラムの名残でした。
 
 ### このリポジトリの中身
 
 - 自分の`exam_rank03_practice-python-`と`42_exam_rank04_simulator_python`にある問題を、本番のexamと同じ制約（`sorted()`/`.sort()`/`set()`/`heapq`/`Counter`/`deque`全面禁止）で解き直したもの。
-- exam3/exam4の問題は実態としてLeetCodeの有名問題をリネーム・軽い改変したものであることが多いため、元ネタと思われるLeetCode問題を`leetcode/`に別途収録し、各exam問題のquestionファイルからどのLeetCode問題に対応するかを参照できるようにしてある（下の対応表を参照）。
-- それに加えて、Rank5/6もexam3/4と同じ「LeetCodeのリネーム」パターンを踏襲している可能性が高いという想定のもと、`leetcode/`には**NeetCode 150の全150問**（exam3/4対応表と重複する7問を除く）も同じ方式（禁止built-inなし）で収録済み。うち7問（Encode and Decode Strings, Walls and Gates, Graph Valid Tree, Number of Connected Components, Alien Dictionary, Meeting Rooms, Meeting Rooms II）はLeetCode Premium限定問題のため、APIから取得した公式問題文ではなく一般知識に基づくパラフレーズで書いてある。
+- rank05.42exam.netから取得したexam5の7問も、同じ禁止built-in制約で解き直して収録。
+- exam3/exam4/exam5の問題は実態としてLeetCodeの有名問題をリネーム・軽い改変したものであることが多いため、元ネタと思われるLeetCode問題を`leetcode/`に別途収録し、各exam問題のquestionファイルからどのLeetCode問題に対応するかを参照できるようにしてある（下の対応表を参照）。
+- それに加えて、Rank6もexam3/4/5と同じ「LeetCodeのリネーム」パターンを踏襲している可能性が高いという想定のもと、`leetcode/`には**NeetCode 150の全150問**（exam3/4対応表と重複する7問を除く）も同じ方式（禁止built-inなし）で収録済み。うち7問（Encode and Decode Strings, Walls and Gates, Graph Valid Tree, Number of Connected Components, Alien Dictionary, Meeting Rooms, Meeting Rooms II）はLeetCode Premium限定問題のため、APIから取得した公式問題文ではなく一般知識に基づくパラフレーズで書いてある。
 
 ### ディレクトリ構成
 
-出典（`exam3` / `exam4` / `leetcode`）ごとにサブフォルダを分けている。`exam3`は`level1`〜`level6`、`exam4`は`level1`〜`level3`と、そもそも難易度レベルの基準が別物の2つの出典リポジトリなので、統一のlevel番号にはマージしていない。
+出典（`exam3` / `exam4` / `exam5` / `leetcode`）ごとにサブフォルダを分けている。`exam3`は`level1`〜`level6`、`exam4`と`exam5`は`level1`〜`level3`と、そもそも難易度レベルの基準が別物の出典サイトなので、統一のlevel番号にはマージしていない。
 
 ```
 Ans/
   exam3/level1〜level6/<problem>.py   # exam3の14問。禁止built-inなし
   exam4/level1〜level3/<problem>.py   # exam4の7問。同上
+  exam5/level1〜level3/<problem>.py   # exam5の7問。同上
   leetcode/<problem>.py                # LeetCode由来の問題。同上
 question/
   exam3/level1〜level6/<problem>.txt
   exam4/level1〜level3/<problem>.txt
+  exam5/level1〜level3/<problem>.txt
   leetcode/<problem>.txt               # 先頭に "Based on: LeetCode ###. Title" を明記
 pra/
   exam3/level1〜level6/py_<problem>.py
   exam4/level1〜level3/py_<problem>.py
+  exam5/level1〜level3/py_<problem>.py
   leetcode/py_<problem>.py
   _template.py                          # 新しい問題を追加する時はこれをコピー
 ```
@@ -188,6 +205,7 @@ pra/
 ```sh
 python3 pra/exam3/level1/py_cryptic_sorter.py
 python3 pra/exam4/level2/py_merge_sorted_list.py
+python3 pra/exam5/level2/py_island_matrix_counter.py
 python3 pra/leetcode/lc001_two_sum.py
 ```
 
@@ -218,5 +236,12 @@ python3 pra/leetcode/lc001_two_sum.py
 | exam4/level2 | palindrome_partitioner | **132. Palindrome Partitioning II** | 高 |
 | exam4/level2 | sliding_window_maximium | **239. Sliding Window Maximum** | 高 |
 | exam4/level3 | package_dependency_resolver | **210. Course Schedule II**（+ 波ごとのタイブレークが1203.に近い） | 高 |
+| exam5/level1 | compress_decompress | 対応なし（443. String Compressionに近い発想） | 低 |
+| exam5/level1 | spiral_matrix | **54. Spiral Matrix**（数字を生成する版は59. Spiral Matrix IIだが本リポジトリ未収録） | 高 |
+| exam5/level2 | graph_cycle_detector | **207. Course Schedule** | 高 |
+| exam5/level2 | schedule_meetings | **253. Meeting Rooms II**（部屋ごとの割り当ても返す点が拡張） | 高 |
+| exam5/level2 | island_matrix_counter | **200. Number of Islands** | 高 |
+| exam5/level3 | prism_detector | **79. Word Search**（8方向探索・全一致位置と方向コードを返す拡張版） | 中 |
+| exam5/level3 | word_ladder | **127. Word Ladder** | 高 |
 
 「確信度: 低」「対応なし」の問題はLeetCodeに直接の元ネタが見当たらなかったもの。存在しない問題番号は書いていないので、`leetcode/`フォルダにはこれら対応なしの問題は収録していない。
