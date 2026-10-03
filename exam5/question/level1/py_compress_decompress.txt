@@ -36,3 +36,27 @@ Output
 Similar to (probably): No clear direct LeetCode equivalent found; loosely
 related to 443. String Compression (which only compresses in place into
 a char array and has no matching decompress step).
+
+---------- 和訳 ----------
+課題
+compress と decompress の2つの関数を書きなさい。
+
+compress(s: str) -> str:
+- 文字列を受け取り、連続して繰り返される文字を「文字+回数」の形に圧縮する。
+- 連続して1回しか現れない文字には数字の '1' を付けない。
+- 入力が空文字列なら空文字列を返す。
+
+decompress(s: str) -> str:
+- 圧縮された文字列を受け取り、元の形に展開する。
+- 複数桁の回数に対応する (例: "a12" -> 'a' が12個)。
+- 文字の後ろに回数がない場合は1回として扱う。
+
+関数シグネチャ
+def compress(s: str) -> str:
+def decompress(s: str) -> str:
+
+例
+(上記の Examples 参照)
+
+類似問題 (おそらく): 明確に対応する LeetCode 問題はない。443. String Compression に
+やや近いが、あちらは文字配列をその場で圧縮するだけで、decompress に相当するものはない。

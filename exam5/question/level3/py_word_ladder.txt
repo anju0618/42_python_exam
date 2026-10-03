@@ -30,3 +30,24 @@ Similar to (probably): LeetCode 127. Word Ladder (identical problem,
 just renamed parameters: begin_word/end_word/word_list here are
 start/end/sentence).
 Reference: question/leetcode/lc127_word_ladder.txt
+
+---------- 和訳 ----------
+課題
+許可された単語のリスト `sentence` を使って、`start` の単語から `end` の単語への
+最短の変換列の長さを求める関数を書きなさい。
+
+各変換ステップでは、ちょうど1文字だけを変更しなければならない。途中の単語はすべて
+`sentence` に含まれていなければならない。
+
+関数は次のようにすること:
+- 最短のラダーに含まれる単語の総数(`start` と `end` を含む)を返す。
+- 変換列が不可能なら 0 を返す。
+
+関数シグネチャ
+def word_ladder(start: str, end: str, sentence: list[str]) -> int:
+
+例
+(上記の Examples 参照)
+
+類似問題 (おそらく): LeetCode 127. Word Ladder (同一の問題で、引数名が変わっただけ:
+begin_word/end_word/word_list が、ここでは start/end/sentence に対応)。

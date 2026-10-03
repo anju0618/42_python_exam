@@ -37,3 +37,26 @@ Output
 Similar to (probably): LeetCode 200. Number of Islands (identical
 algorithm and grid convention, just under a different function name).
 Reference: question/leetcode/lc200_number_of_islands.txt
+
+---------- 和訳 ----------
+課題
+"1" と "0" の文字列からなる2次元行列を受け取り、島の総数を返す関数
+island_matrix_counter(matrix) を書きなさい。
+
+島とは、連結した "1" のセルの集まりである。セルが連結しているとみなされるのは、
+水平方向(左右)または垂直方向(上下)に直接隣接している場合のみ。斜めのセルは連結とみなさない。
+
+- "1" は陸地を表す。
+- "0" は水を表す。
+- それぞれ別の島をちょうど1回ずつ数える。
+- 空の行列(または行を持たない行列)は 0 を返す。
+- 各島全体を探索するために、DFS/BFS による走査や行列の書き換えを使ってよい。
+
+関数シグネチャ
+def island_matrix_counter(matrix: list[list[str]]) -> int:
+
+例
+(上記の Examples 参照)
+
+類似問題 (おそらく): LeetCode 200. Number of Islands (アルゴリズムもグリッドの表記も同一で、
+関数名だけが異なる)。

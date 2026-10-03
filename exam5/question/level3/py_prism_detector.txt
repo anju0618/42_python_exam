@@ -40,3 +40,34 @@ returns a single bool, while this one scans all 8 directions and
 returns every match with its direction code -- closer in spirit to a
 classic word-search-puzzle solver).
 Reference: question/leetcode/lc079_word_search.txt
+
+---------- 和訳 ----------
+課題
+文字の2次元グリッドの中から、対象の単語パターンの出現をすべて、縦・横・斜めの8方向で
+探索する関数を書きなさい。
+
+方向とそのコードは次の通り:
+- (1, 0) -> "H" (水平・右向き)
+- (-1, 0) -> "H-" (水平・左向き)
+- (0, 1) -> "V" (垂直・下向き)
+- (0, -1) -> "V-" (垂直・上向き)
+- (1, 1) -> "D1" (斜め・右下)
+- (-1, -1) -> "D1-" (斜め・左上)
+- (-1, 1) -> "D2" (斜め・右上)
+- (1, -1) -> "D2-" (斜め・左下)
+
+関数は次のようにすること:
+- 文字列のグリッド `grid` と対象の文字列 `pattern` を受け取る。
+- 一致ごとにタプル (x, y, direction_code) を作り、そのリストを返す。x は先頭文字の列
+  インデックス、y は行インデックス。
+- grid または pattern が空なら空リスト [] を返す。
+
+関数シグネチャ
+def prism_detector(grid: list[str], pattern: str):
+
+例
+(上記の Examples 参照)
+
+類似問題 (おそらく): LeetCode 79. Word Search (文字グリッドという設定は同じだが、
+LC79 は上下左右の4方向のみで同じセルの再利用は不可、結果は単一の bool。本問題は8方向を
+探索し、方向コード付きで全ての一致を返す。古典的なワードサーチパズルのソルバーに近い)。

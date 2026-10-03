@@ -32,3 +32,25 @@ Similar to (probably): LeetCode 253. Meeting Rooms II (same minimum-
 room-count idea; this variant also returns which room each meeting was
 assigned to, not just the count).
 Reference: question/leetcode/lc253_meeting_rooms_ii.txt
+
+---------- 和訳 ----------
+課題
+重ならないように会議の時間区間のリストをスケジュールするのに必要な最小の会議室数を求め、
+各会議を会議室に割り当てる関数を書きなさい。
+
+各区間は (開始時刻, 終了時刻) のタプルで表される。
+
+関数は次のようにすること:
+- 会議を開始時刻でソートし、空いている会議室へ順番に割り当てる。
+- タプル (num_rooms, rooms) を返す。num_rooms は必要な会議室数(整数)、
+  rooms は各会議室にスケジュールされた区間のリストからなるリスト。
+- 入力リストが空なら (0, []) を返す。
+
+関数シグネチャ
+def schedule_meetings(intervals: list[tuple[int, int]]) -> tuple[int, list]:
+
+例
+(上記の Examples 参照)
+
+類似問題 (おそらく): LeetCode 253. Meeting Rooms II (最小会議室数を求める点は同じ。
+本問題では数だけでなく、各会議がどの部屋に割り当てられたかも返す)。

@@ -26,3 +26,19 @@ spiral order while this one fills a fresh matrix with 1..n^2 in that
 order -- that generating variant is LeetCode 59. Spiral Matrix II,
 which isn't in this repo's leetcode/ set).
 Reference: question/leetcode/lc054_spiral_matrix.txt
+
+---------- 和訳 ----------
+課題
+1 から n^2 までの数を時計回りの渦巻き順に埋めた n x n の2次元行列を生成する関数を書きなさい。
+
+渦巻きは左上のセル (0, 0) から始まり、右 → 下 → 左 → 上の順に進み、内側へ続けていく。
+
+関数シグネチャ
+def generate_spiral(n: int) -> list[list[int]]:
+
+例
+(上記の Examples 参照)
+
+類似問題 (おそらく): LeetCode 54. Spiral Matrix (時計回りの渦巻き順は同じだが、LC54 は既存の
+行列を渦巻き順に読み出すのに対し、本問題は新しい行列に 1..n^2 を渦巻き順に埋める。
+この生成型は LeetCode 59. Spiral Matrix II で、このリポジトリの leetcode/ には含まれない)。

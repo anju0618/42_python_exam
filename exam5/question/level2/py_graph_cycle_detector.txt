@@ -38,3 +38,26 @@ Similar to (probably): LeetCode 207. Course Schedule (same directed-
 cycle-detection idea, expressed there as course prerequisites instead
 of a raw adjacency list).
 Reference: question/leetcode/lc207_course_schedule.txt
+
+---------- 和訳 ----------
+課題
+有向グラフに少なくとも1つの閉路(サイクル)があるかを判定する関数を書きなさい。
+
+関数は隣接リストを表す辞書を受け取る。キーは整数のノードID、値は隣接ノードIDの整数リスト。
+
+関数は次のようにすること:
+- 有向グラフに閉路があれば True を返す。
+- グラフが非巡回、または入力の辞書が空なら False を返す。
+- 複数の非連結成分を持つグラフも正しく扱う。
+
+使用禁止の組み込み/モジュール: graphlib.TopologicalSorter。
+アルゴリズムは自分で実装すること。
+
+関数シグネチャ
+def py_graph_cycle_detector(graph: dict[int, list[int]]) -> bool:
+
+例
+(上記の Examples 参照)
+
+類似問題 (おそらく): LeetCode 207. Course Schedule (有向閉路検出という考え方は同じで、
+あちらは生の隣接リストではなく履修の前提条件として表現されている)。
