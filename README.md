@@ -43,31 +43,25 @@ leftover material from the old C++ curriculum.
 
 ### Directory layout
 
-Subfolders are split by source (`exam3` / `exam4` / `exam5` /
+Top-level folders are split by source (`exam3` / `exam4` / `exam5` /
 `leetcode`). `exam3` uses `level1`-`level6`, `exam4` and `exam5` use
 `level1`-`level3` — these are different difficulty scales from
 different source sites, not merged into one numbering.
 
 ```
-Ans/
-  exam3/level1-level6/<problem>.py   # 14 exam3 problems, no banned built-ins
-  exam4/level1-level3/<problem>.py   # 7 exam4 problems, same rule
-  exam5/level1-level3/<problem>.py   # 7 exam5 problems, same rule
-  leetcode/<problem>.py               # LeetCode-sourced problems, same rule
-question/
-  exam3/level1-level6/<problem>.txt
-  exam4/level1-level3/<problem>.txt
-  exam5/level1-level3/<problem>.txt
-  leetcode/<problem>.txt              # "Based on: LeetCode ###. Title" noted
-pra/
-  exam3/level1-level6/py_<problem>.py
-  exam4/level1-level3/py_<problem>.py
-  exam5/level1-level3/py_<problem>.py
-  leetcode/py_<problem>.py
-  _template.py                         # copy this to start a new problem
+<source>/ans/        solutions
+<source>/question/   problem statements
+<source>/pra/        self-practice stubs
+_template.py         copy this to start a new problem
+
+exam3/{ans,question,pra}/level1-level6/   # 14 problems
+exam4/{ans,question,pra}/level1-level3/   # 7 problems
+exam5/{ans,question,pra}/level1-level3/   # 7 problems
+leetcode/{ans,question,pra}/              # LeetCode-sourced problems
+leetcode_normal/ans/                      # alternative easy-to-read solutions
 ```
 
-- **`Ans/`**: solutions. No `sorted()`/`.sort()`/`set()`/`heapq`/
+- **`ans/`**: solutions. No `sorted()`/`.sort()`/`set()`/`heapq`/
   `Counter`/`deque` anywhere — everything is written out by hand
   (manual sorting, manual hashing via plain `dict`, manual stacks/
   queues via plain `list`).
@@ -78,9 +72,9 @@ pra/
   line.
 - **`pra/`**: self-practice stubs. The target function starts as
   `pass`; a `check(label, actual, expected)` helper prints `[OK]`/
-  `[NG]` per test case. Copy `pra/_template.py` for new problems.
+  `[NG]` per test case. Copy `_template.py` for new problems.
 
-### Rules for `Ans/`
+### Rules for `ans/`
 
 Treat these as banned the same way the real moulinette bans them:
 
@@ -101,10 +95,10 @@ the ban applies to the solution itself, not to test-harness code.
 ### Using `pra/`
 
 ```sh
-python3 pra/exam3/level1/py_cryptic_sorter.py
-python3 pra/exam4/level2/py_merge_sorted_list.py
-python3 pra/exam5/level2/py_island_matrix_counter.py
-python3 pra/leetcode/lc001_two_sum.py
+python3 exam3/pra/level1/py_cryptic_sorter.py
+python3 exam4/pra/level2/py_merge_sorted_list.py
+python3 exam5/pra/level2/py_island_matrix_counter.py
+python3 leetcode/pra/lc001_two_sum.py
 ```
 
 Each file is self-contained; implement the function, run it directly,
@@ -166,29 +160,23 @@ real problem number was found — those aren't guessed or invented.
 出典（`exam3` / `exam4` / `exam5` / `leetcode`）ごとにサブフォルダを分けている。`exam3`は`level1`〜`level6`、`exam4`と`exam5`は`level1`〜`level3`と、そもそも難易度レベルの基準が別物の出典サイトなので、統一のlevel番号にはマージしていない。
 
 ```
-Ans/
-  exam3/level1〜level6/<problem>.py   # exam3の14問。禁止built-inなし
-  exam4/level1〜level3/<problem>.py   # exam4の7問。同上
-  exam5/level1〜level3/<problem>.py   # exam5の7問。同上
-  leetcode/<problem>.py                # LeetCode由来の問題。同上
-question/
-  exam3/level1〜level6/<problem>.txt
-  exam4/level1〜level3/<problem>.txt
-  exam5/level1〜level3/<problem>.txt
-  leetcode/<problem>.txt               # 先頭に "Based on: LeetCode ###. Title" を明記
-pra/
-  exam3/level1〜level6/py_<problem>.py
-  exam4/level1〜level3/py_<problem>.py
-  exam5/level1〜level3/py_<problem>.py
-  leetcode/py_<problem>.py
-  _template.py                          # 新しい問題を追加する時はこれをコピー
+<出典>/ans/        解答
+<出典>/question/   問題文
+<出典>/pra/        自己練習用スタブ
+_template.py       新しい問題を追加する時はこれをコピー
+
+exam3/{ans,question,pra}/level1〜level6/   # 14問
+exam4/{ans,question,pra}/level1〜level3/   # 7問
+exam5/{ans,question,pra}/level1〜level3/   # 7問
+leetcode/{ans,question,pra}/               # LeetCode由来の問題
+leetcode_normal/ans/                       # 読みやすさ重視の別解
 ```
 
-- **`Ans/`**: 解答。`sorted()`/`.sort()`/`set()`/`heapq`/`Counter`/`deque`は一切使わず、全部手で書く（挿入ソート、dictを使った手動ハッシュ、素のlistによるスタック/キューなど）。
+- **`ans/`**: 解答。`sorted()`/`.sort()`/`set()`/`heapq`/`Counter`/`deque`は一切使わず、全部手で書く（挿入ソート、dictを使った手動ハッシュ、素のlistによるスタック/キューなど）。
 - **`question/`**: 問題文。exam3/exam4は元リポジトリの`Subject/`・`questions/`を基にリライトし、`leetcode/`はLeetCodeの文章をそのまま転載せず（著作権配慮）パラフレーズして書いてあり、冒頭に`Based on: LeetCode ###. Title`と明記してある。
-- **`pra/`**: 自己練習用スタブ。関数本体は`pass`から始め、`check(label, actual, expected)`で`[OK]`/`[NG]`を出しながら自己採点する。新しい問題を足すときは`pra/_template.py`をコピーする。
+- **`pra/`**: 自己練習用スタブ。関数本体は`pass`から始め、`check(label, actual, expected)`で`[OK]`/`[NG]`を出しながら自己採点する。新しい問題を足すときは`_template.py`をコピーする。
 
-### `Ans/`に書くときのルール
+### `ans/`に書くときのルール
 
 本番のmoulinetteが弾くのと同じ扱いで、以下を全面禁止する：
 
@@ -203,10 +191,10 @@ pra/
 ### `pra/`の使い方
 
 ```sh
-python3 pra/exam3/level1/py_cryptic_sorter.py
-python3 pra/exam4/level2/py_merge_sorted_list.py
-python3 pra/exam5/level2/py_island_matrix_counter.py
-python3 pra/leetcode/lc001_two_sum.py
+python3 exam3/pra/level1/py_cryptic_sorter.py
+python3 exam4/pra/level2/py_merge_sorted_list.py
+python3 exam5/pra/level2/py_island_matrix_counter.py
+python3 leetcode/pra/lc001_two_sum.py
 ```
 
 各ファイルは自己完結型。関数を実装して直接実行し、全ケースで`[OK]`が出ることを確認する。

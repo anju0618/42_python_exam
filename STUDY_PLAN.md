@@ -11,8 +11,8 @@
 
 1. その日のリストを`sorted()` / `.sort()` / `set()` / `heapq` /
    `Counter` / `deque` 禁止で解く
-2. `python3 pra/leetcode/<file>.py` を実行し、全ケース `[OK]` を確認
-3. `Ans/leetcode/<file>.py` と見比べて、禁止built-inの回避パターン
+2. `python3 leetcode/pra/<file>.py` を実行し、全ケース `[OK]` を確認
+3. `leetcode/ans/<file>.py` と見比べて、禁止built-inの回避パターン
    を吸収する
 4. 詰まった問題は下部の「進捗メモ」に書き足す
 
@@ -43,7 +43,7 @@
 - [ ] **Day6**（復習日）: Day1〜5で`[NG]`だった問題・時間がかかった
   問題を解き直す
 - [ ] **Day7**（書籍+ミニ模試）: Cambridge本 *Character Strings* /
-  *Sequences* / *Arrays* / *Sets* を読む → `question/exam3/level1`,
+  *Sequences* / *Arrays* / *Sets* を読む → `exam3/question/level1`,
   `level2` を時間を計って解く
 
 ---
@@ -110,7 +110,7 @@ BFS/DFS/トポロジカルソート(Kahn)/Union-Find/簡易Dijkstraを手で書�
   lc202_happy_number
 - [ ] **Day21**（復習+書籍+ミニ模試）: Cambridge本 *Graphs* /
   *Cycles in Graphs* / *Shortest Paths* を読む →
-  `question/exam4/level3` を時間を計って解く
+  `exam4/question/level3` を時間を計って解く
 
 ---
 
@@ -169,8 +169,8 @@ BFS/DFS/トポロジカルソート(Kahn)/Union-Find/簡易Dijkstraを手で書�
   lc019_remove_nth_node_from_end_of_list /
   lc022_generate_parentheses / lc043_multiply_strings /
   lc045_jump_game_ii / lc050_powx_n / lc066_plus_one
-- [ ] **Day35**（総仕上げ模試）: `question/exam3/level1〜6` と
-  `question/exam4/level1〜3` を通しで時間を計って解く（禁止
+- [ ] **Day35**（総仕上げ模試）: `exam3/question/level1〜6` と
+  `exam4/question/level1〜3` を通しで時間を計って解く（禁止
   built-in厳守・答えを見ない）。詰まったところだけ翌日以降に復習
 
 ---
