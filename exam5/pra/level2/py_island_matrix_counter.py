@@ -1,6 +1,4 @@
 def island_matrix_counter(matrix: list[list[str]]) -> int:
-    # TODO: implement
-    pass
 
 
 def check(label, actual, expected):

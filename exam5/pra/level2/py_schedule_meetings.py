@@ -1,6 +1,4 @@
 def schedule_meetings(intervals: list[tuple[int, int]]) -> tuple[int, list]:
-    # TODO: implement without sorted()/.sort()
-    pass
 
 
 def check(label, actual, expected):

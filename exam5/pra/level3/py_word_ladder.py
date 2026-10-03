@@ -1,6 +1,4 @@
 def word_ladder(start: str, end: str, sentence: list[str]) -> int:
-    # TODO: implement without collections.deque
-    pass
 
 
 def check(label, actual, expected):

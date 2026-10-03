@@ -1,6 +1,4 @@
 def py_graph_cycle_detector(graph: dict[int, list[int]]) -> bool:
-    # TODO: implement without graphlib.TopologicalSorter
-    pass
 
 
 def check(label, actual, expected):

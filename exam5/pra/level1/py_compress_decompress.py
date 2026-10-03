@@ -1,11 +1,15 @@
 def compress(s: str) -> str:
-    # TODO: implement
-    pass
+    if not s:
+        return ""
+
+    res = []
+    c = 1
+    for i in range(1, len(s)):
+        if s[i] == s[i - 1]:
+            
 
 
 def decompress(s: str) -> str:
-    # TODO: implement
-    pass
 
 
 def check(label, actual, expected):

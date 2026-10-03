@@ -1,6 +1,4 @@
 def generate_spiral(n: int) -> list[list[int]]:
-    # TODO: implement
-    pass
 
 
 def check(label, actual, expected):

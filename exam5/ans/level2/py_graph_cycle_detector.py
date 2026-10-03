@@ -18,7 +18,6 @@ def py_graph_cycle_detector(graph: dict[int, list[int]]) -> bool:
         return False
 
     for node in graph:
-        if node not in state:
-            if dfs(node):
-                return True
+        if node not in state and dfs(node):
+            return True
     return False

@@ -16,8 +16,8 @@ def word_ladder(start: str, end: str, sentence: list[str]) -> int:
             if candidate in visited:
                 continue
             diff = 0
-            for a, b in zip(word, candidate):
-                if a != b:
+            for i in range(len(word)):
+                if word[i] != candidate[i]:
                     diff += 1
                     if diff > 1:
                         break

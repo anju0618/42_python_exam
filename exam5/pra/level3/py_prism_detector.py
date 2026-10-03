@@ -1,6 +1,4 @@
 def prism_detector(grid: list[str], pattern: str):
-    # TODO: implement
-    pass
 
 
 def check(label, actual, expected):
