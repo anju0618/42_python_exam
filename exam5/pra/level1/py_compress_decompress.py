@@ -1,12 +1,4 @@
 def compress(s: str) -> str:
-    if not s:
-        return ""
-
-    res = []
-    c = 1
-    for i in range(1, len(s)):
-        if s[i] == s[i - 1]:
-            
 
 
 def decompress(s: str) -> str:
