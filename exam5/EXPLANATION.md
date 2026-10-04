@@ -7,8 +7,8 @@
 |---|------|--------|------------------|
 | 1 | py_compress_decompress | 1 | ラン長圧縮: 比較しながら1回走査 |
 | 2 | py_spiral_matrix | 1 | 境界を縮める渦巻き |
-| 3 | py_graph_cycle_detector | 2 | 3状態DFS(未訪問/visiting/done) |
-| 4 | py_island_matrix_counter | 2 | グリッドDFSで連結成分を数える |
+| 3 | py_graph_cycle_detector | 2 | DFSで「今の道」に戻ったら閉路 |
+| 4 | py_island_matrix_counter | 2 | グリッドDFSで陸を"0"に塗りつぶす |
 | 5 | py_schedule_meetings | 2 | ソート＋貪欲な部屋割り当て |
 | 6 | py_prism_detector | 3 | 全セル×8方向の総当たり |
 | 7 | py_word_ladder | 3 | BFSで最短経路(語数) |
@@ -81,56 +81,57 @@ while top <= bottom and left <= right:
 
 ## 3. py_graph_cycle_detector (level2)
 
-**暗記ポイント**: 有向グラフの閉路検出は「訪問済みか」ではなく「**今の経路上(スタック上)にいるか**」で判定する。そのため3状態を使う。
-
-| 状態 | 意味 |
-|------|------|
-| 未訪問(stateにない) | まだ見ていない |
-| `"visiting"` | 今のDFS経路の途中(スタック上) |
-| `"done"` | 調べ終わり、閉路なし確定 |
+**暗記ポイント**: 有向グラフの閉路検出は「訪問済みか」ではなく「**今たどっている道の上にいるか**」で判定する。道に入るときに `visiting` に入れ、戻るときに消す。
 
 ### 型
 ```python
+visiting = {}                      # 今の道に乗っているノード(set()禁止なのでdict)
+
 def dfs(node):
-    if state.get(node) == "visiting": return True   # 経路上に戻った=閉路
-    if state.get(node) == "done":     return False  # 調査済み
-    state[node] = "visiting"
-    for neighbor in graph.get(node, []):
-        if dfs(neighbor): return True
-    state[node] = "done"
+    if node in visiting: return True       # 今の道に戻ってきた=閉路
+    visiting[node] = True                  # 道に入る
+    for n in graph.get(node, []):
+        if dfs(n): return True
+    del visiting[node]                     # ★戻るときに道から消す
     return False
 
 for node in graph:                 # ★非連結成分すべてを起点にする
-    if node not in state and dfs(node): return True
+    if dfs(node): return True
+return False
 ```
-- **最重要**: `visited`(2状態)ではダメ。`A→B, A→C, B→C` のように別経路から訪問済みノードに着くのは閉路ではない。「経路上か」を区別する3状態が必須。
+- **最重要**: 戻るときの `del visiting[node]` を忘れない。消さないと `A→B, A→C, B→C` のように別の道から同じノードに着いただけで閉路と誤判定する。
 - `graph.get(node, [])` で辞書にないノードも安全に処理。
-- 外側の `for node in graph` で非連結成分すべてをカバー。
+- 外側の `for node in graph` で非連結成分すべてをカバー。空のグラフはループが回らず `False`。
+
+### 覚えるトレース: `{0: [1], 1: [2], 2: [0]}`
+`dfs(0)` 道={0} → `dfs(1)` 道={0,1} → `dfs(2)` 道={0,1,2} → `dfs(0)`: 0は道にいる → **True**
 
 ### 落とし穴
-- 自己ループ `{0: [0]}` は `0` が `"visiting"` のまま自分に戻るので `True`。
+- 自己ループ `{0: [0]}` は `0` が道に乗ったまま自分に戻るので `True`。
+- 調べ終わったノードを覚えないので、同じノードを何度も調べ直す。分岐が多い大きなグラフでは遅くなる(普通のテスト規模なら問題ない)。
 
 ---
 
 ## 4. py_island_matrix_counter (level2)
 
-**暗記ポイント**: 未訪問の `"1"` を見つけたら島が1つ増える。その島全体をDFSで訪問済みにして二重カウントを防ぐ。
+**暗記ポイント**: `"1"` を見つけたら島が1つ増える。その島全体をDFSで `"0"`(水)に塗りつぶして二重カウントを防ぐ。`visited` は使わない(問題文で行列の書き換えが許可されている)。
 
 ### 型
 ```python
-for r in range(rows):
-    for c in range(cols):
-        if matrix[r][c] == "1" and not visited[r][c]:
+for r in range(len(matrix)):
+    for c in range(len(matrix[0])):
+        if matrix[r][c] == "1":
             count += 1       # 新しい島の発見
-            dfs(r, c)        # 島全体をvisitedにする
+            dfs(r, c)        # 島全体を"0"に塗る
 
 def dfs(r, c):
-    if r < 0 or r >= rows or c < 0 or c >= cols: return   # ★範囲外チェックを先に
-    if visited[r][c] or matrix[r][c] != "1":     return   # 訪問済み or 水
-    visited[r][c] = True
+    if r < 0 or r >= len(matrix) or c < 0 or c >= len(matrix[0]): return   # ★範囲外チェックを先に
+    if matrix[r][c] != "1": return                                         # 水 or 塗り済み
+    matrix[r][c] = "0"
     dfs(r+1, c); dfs(r-1, c); dfs(r, c+1); dfs(r, c-1)    # 上下左右のみ(斜めなし)
 ```
-- **最重要**: 範囲チェックを `visited` 参照より**先に**書く。逆だと負のインデックスがPythonでは末尾要素を指してバグになる。
+- **最重要**: 範囲チェックを `matrix[r][c]` 参照より**先に**書く。逆だと負のインデックスがPythonでは末尾要素を指してバグになる。
+- 空の行列 `[]` は外側のループが回らないので、そのまま `0`。
 - 斜めには進まない(4方向のみ)。斜めだけで接するセルは別の島。
 - 要素は文字列 `"1"`/`"0"`。`== 1` と比べると常に偽になるので注意。
 
@@ -220,22 +221,20 @@ if end not in sentence: return 0          # 到達不能な終点は即座に0
 
 visited = {start: True}
 queue = [(start, 1)]                       # (単語, ここまでの語数)
-idx = 0
-while idx < len(queue):
-    word, length = queue[idx]; idx += 1    # listで疑似deque(pop(0)を避ける)
+for word, length in queue:                 # ★ループ中にappendした要素も順に回ってくる
     if word == end: return length
-    for candidate in sentence:
-        if candidate in visited: continue
+    for cand in sentence:
+        if cand in visited: continue
         diff = 0
-        for i in range(len(word)):         # 1文字差の判定(インデックスで比較)
-            if word[i] != candidate[i]:
+        for i in range(len(word)):         # 違う文字の数を最後まで数える
+            if word[i] != cand[i]:
                 diff += 1
-                if diff > 1: break
         if diff == 1:
-            visited[candidate] = True      # ★キューに入れる時点でvisited更新
-            queue.append((candidate, length + 1))
+            visited[cand] = True           # ★キューに入れる時点でvisited更新
+            queue.append((cand, length + 1))
 return 0
 ```
+- **最重要**: 先頭の `if end not in sentence: return 0` は消さない。消すと `start == end` で `end` が `sentence` にないときに `1` を返してしまう。
 - **最重要**: 長さは「語数」(startとendを含む)なので初期値は1。
 - **最重要**: `visited` は**キューに入れる時**に更新する。取り出す時に更新すると同じ単語が何度も入ってしまう。
 - `diff == 1` のみ遷移可(同一単語=diff0は遷移にならない)。
@@ -246,4 +245,4 @@ return 0
 
 ### 落とし穴
 - `start` は `sentence` に含まれなくてもよい。
-- 全単語が同じ長さである前提で `word[i]`/`candidate[i]` のインデックス比較をしている(長さが違う単語が混ざると `IndexError` になりうる)。
+- 全単語が同じ長さである前提で `word[i]`/`cand[i]` のインデックス比較をしている(長さが違う単語が混ざると `IndexError` になりうる)。

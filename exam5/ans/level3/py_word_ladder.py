@@ -4,25 +4,19 @@ def word_ladder(start: str, end: str, sentence: list[str]) -> int:
 
     visited = {start: True}
     queue = [(start, 1)]
-    idx = 0
 
-    while idx < len(queue):
-        word, length = queue[idx]
-        idx += 1
+    for word, length in queue:
         if word == end:
             return length
-
-        for candidate in sentence:
-            if candidate in visited:
+        for cand in sentence:
+            if cand in visited:
                 continue
             diff = 0
             for i in range(len(word)):
-                if word[i] != candidate[i]:
+                if word[i] != cand[i]:
                     diff += 1
-                    if diff > 1:
-                        break
             if diff == 1:
-                visited[candidate] = True
-                queue.append((candidate, length + 1))
+                visited[cand] = True
+                queue.append((cand, length + 1))
 
     return 0

@@ -1,26 +1,20 @@
 def island_matrix_counter(matrix: list[list[str]]) -> int:
-    if not matrix or not matrix[0]:
-        return 0
-
-    rows = len(matrix)
-    cols = len(matrix[0])
-    visited = [[False] * cols for _ in range(rows)]
+    count = 0
 
     def dfs(r: int, c: int) -> None:
-        if r < 0 or r >= rows or c < 0 or c >= cols:
+        if r < 0 or r >= len(matrix) or c < 0 or c >= len(matrix[0]):
             return
-        if visited[r][c] or matrix[r][c] != "1":
+        if matrix[r][c] != "1":
             return
-        visited[r][c] = True
+        matrix[r][c] = "0"
         dfs(r + 1, c)
         dfs(r - 1, c)
         dfs(r, c + 1)
         dfs(r, c - 1)
 
-    count = 0
-    for r in range(rows):
-        for c in range(cols):
-            if matrix[r][c] == "1" and not visited[r][c]:
+    for r in range(len(matrix)):
+        for c in range(len(matrix[0])):
+            if matrix[r][c] == "1":
                 count += 1
                 dfs(r, c)
     return count
