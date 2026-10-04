@@ -1,235 +1,187 @@
 # 42_python_exam
 
-Practice repo for 42 School's Exam Rank 05 / 06 under the Python
-curriculum, plus the original LeetCode problems that exam3/exam4/exam5
-turn out to be reskins of.
+Practice problems for the 42 School Python curriculum exams (Exam Rank 03 / 04 / 05).
+
+[English](#english) | [日本語](#日本語)
 
 ---
 
 ## English
 
-### Background
+### Contents
 
-42's Python-based Exam Rank 05 is now published by the unofficial
-tracker site rank05.42exam.net (part of the 42exam.net family used for
-exam3/exam4 too). Rank 06 still has no public source. Every GitHub
-repository claiming to cover "exam rank 05/06" beyond that tends to be
-leftover material from the old C++ curriculum.
+| Directory | Contents |
+|---|---|
+| `exam3/` | Exam Rank 03, level1–level6, 14 problems |
+| `exam4/` | Exam Rank 04, level1–level3, 7 problems |
+| `exam5/` | Exam Rank 05, level1–level3, 7 problems |
+| `leetcode/` | LeetCode problems the exam problems are based on + NeetCode 150 (155 problems) |
+| `leetcode_normal/ans/` | Alternative, easier-to-read solutions for `leetcode/` |
+| `STUDY_PLAN.md` | Daily study plan (Japanese) |
+| `_template.py` | Template for adding a new problem |
 
-### What's in here
+Each source directory has three subdirectories:
 
-- The problems from my own `exam_rank03_practice-python-` and
-  `42_exam_rank04_simulator_python` repos, rewritten to run entirely
-  without `sorted()` / `.sort()` / `set()` / `heapq` /
-  `Counter`/`deque` — the same constraints the real exam enforces.
-- exam5's 7 subjects, pulled from rank05.42exam.net and rewritten under
-  the same no-banned-built-ins constraint.
-- Since exam3/exam4/exam5's problems are, more often than not,
-  well-known LeetCode problems renamed and lightly reworded, the
-  LeetCode problems they appear to be based on are collected separately
-  under `leetcode/`, with each exam question file cross-referencing
-  which LeetCode problem it's likely adapted from (see the mapping
-  table below).
-- On top of that, `leetcode/` also includes the full **NeetCode 150**
-  list (all 150 problems, minus the 7 that already overlapped with the
-  exam3/4 mapping above), worked the same way (no banned built-ins), on
-  the assumption that Rank 6 follows the same "reskinned LeetCode"
-  pattern as Rank 3/4/5. 7 of those 150 are premium-only LeetCode
-  problems (Encode and Decode Strings, Walls and Gates, Graph Valid
-  Tree, Number of Connected Components, Alien Dictionary, Meeting
-  Rooms, Meeting Rooms II) — their `question/` files are written from
-  general knowledge rather than fetched from LeetCode's API, since the
-  official text is paywalled.
+- `question/` — problem statement
+- `pra/` — practice stub (function body is empty, test cases included)
+- `ans/` — solution
 
-### Directory layout
+Solutions in `ans/` do not use `sorted()`, `.sort()`, `set()`, `heapq`, `Counter`, or `deque`.
 
-Top-level folders are split by source (`exam3` / `exam4` / `exam5` /
-`leetcode`). `exam3` uses `level1`-`level6`, `exam4` and `exam5` use
-`level1`-`level3` — these are different difficulty scales from
-different source sites, not merged into one numbering.
+### Usage
 
-```
-<source>/ans/        solutions
-<source>/question/   problem statements
-<source>/pra/        self-practice stubs
-_template.py         copy this to start a new problem
-
-exam3/{ans,question,pra}/level1-level6/   # 14 problems
-exam4/{ans,question,pra}/level1-level3/   # 7 problems
-exam5/{ans,question,pra}/level1-level3/   # 7 problems
-leetcode/{ans,question,pra}/              # LeetCode-sourced problems
-leetcode_normal/ans/                      # alternative easy-to-read solutions
-```
-
-- **`ans/`**: solutions. No `sorted()`/`.sort()`/`set()`/`heapq`/
-  `Counter`/`deque` anywhere — everything is written out by hand
-  (manual sorting, manual hashing via plain `dict`, manual stacks/
-  queues via plain `list`).
-- **`question/`**: problem statements. exam3/exam4 ones are rewritten
-  from the source repos' `Subject/`/`questions/`; `leetcode/` ones are
-  paraphrased from LeetCode's problem text (not copied verbatim, for
-  copyright reasons) and start with a `Based on: LeetCode ###. Title`
-  line.
-- **`pra/`**: self-practice stubs. The target function starts as
-  `pass`; a `check(label, actual, expected)` helper prints `[OK]`/
-  `[NG]` per test case. Copy `_template.py` for new problems.
-
-### Rules for `ans/`
-
-Treat these as banned the same way the real moulinette bans them:
-
-- `sorted()`, `list.sort()`
-- `set()`, set literals
-- the `heapq` module
-- `collections.Counter`, `collections.deque`
-- equivalent standard-library shortcuts (e.g. `itertools` aggregation
-  helpers)
-
-Comparison, swapping, searching, and ordering are all written with
-plain loops, indexing, and recursion (hand-rolled insertion sort,
-linear search, hand-rolled binary heaps, manual hash maps via `dict`,
-etc). Note: a `sorted()`/`set()` used purely inside a test's `check()`
-call to normalize order-independent output for comparison is fine —
-the ban applies to the solution itself, not to test-harness code.
-
-### Using `pra/`
+1. Read the problem in `question/`.
+2. Implement the function in `pra/`.
+3. Run it and check that every case prints `[OK]`.
+4. Compare with `ans/`.
 
 ```sh
-python3 exam3/pra/level1/py_cryptic_sorter.py
-python3 exam4/pra/level2/py_merge_sorted_list.py
-python3 exam5/pra/level2/py_island_matrix_counter.py
-python3 leetcode/pra/lc001_two_sum.py
+python3 exam5/pra/level1/py_spiral_matrix.py
 ```
 
-Each file is self-contained; implement the function, run it directly,
-and confirm every case prints `[OK]`.
+To reset the practice files and start over, discard your changes with git. This can be repeated any number of times.
 
-### Exam problem to LeetCode mapping
+```sh
+git restore .                # reset everything
+git restore exam5/pra/       # reset only exam5 practice files
+```
 
-| Source | Problem | Likely LeetCode source | Confidence |
-|---|---|---|---|
-| exam3/level1 | cryptic_sorter | none found (closest: 179. Largest Number's custom-comparator idea) | low |
-| exam3/level1 | inter | 349. Intersection of Two Arrays | medium |
-| exam3/level2 | echo_validator | **125. Valid Palindrome** | high |
-| exam3/level2 | mirror_matrix | none found (row-reversal is a building block of 48. Rotate Image) | low |
-| exam3/level3 | hidenp | **392. Is Subsequence** | high |
-| exam3/level3 | number_base_converter | none found (loosely related to 504. Base 7) | low |
-| exam3/level3 | pattern_tracker | none found | - |
-| exam3/level4 | anagram | **242. Valid Anagram** | high |
-| exam3/level4 | shadow_merge | **21. Merge Two Sorted Lists** | high |
-| exam3/level4 | string_permutation_checker | **242. Valid Anagram** (case-sensitive variant) | high |
-| exam3/level5 | string_sculptor | none found | - |
-| exam3/level5 | twist_sequence | **189. Rotate Array** | high |
-| exam3/level6 | bracket_validator | **20. Valid Parentheses** | high |
-| exam3/level6 | whisper_cipher | none found (loosely related to 2325. Decode the Message) | low |
-| exam4/level1 | array_rotation_detector | **796. Rotate String** (array version) | high |
-| exam4/level1 | constellation_mapper | none found | - |
-| exam4/level1 | list_intersection_finder | **349. Intersection of Two Arrays** (generalized to N lists) | medium |
-| exam4/level2 | merge_sorted_list | **23. Merge k Sorted Lists** | high |
-| exam4/level2 | palindrome_partitioner | **132. Palindrome Partitioning II** | high |
-| exam4/level2 | sliding_window_maximium | **239. Sliding Window Maximum** | high |
-| exam4/level3 | package_dependency_resolver | **210. Course Schedule II** (+ the wave tie-break resembles 1203.) | high |
-| exam5/level1 | compress_decompress | none found (loosely related to 443. String Compression) | low |
-| exam5/level1 | spiral_matrix | **54. Spiral Matrix** (generating variant is 59. Spiral Matrix II, not in this repo) | high |
-| exam5/level2 | graph_cycle_detector | **207. Course Schedule** | high |
-| exam5/level2 | schedule_meetings | **253. Meeting Rooms II** (also returns per-room assignments) | high |
-| exam5/level2 | island_matrix_counter | **200. Number of Islands** | high |
-| exam5/level3 | prism_detector | **79. Word Search** (8-directional variant, returns all matches + direction codes) | medium |
-| exam5/level3 | word_ladder | **127. Word Ladder** | high |
+Note: `git restore .` discards all uncommitted changes in the repository.
 
-Rows marked "low"/"none found" have no file under `leetcode/` since no
-real problem number was found — those aren't guessed or invented.
+### Problems
+
+LeetCode column: the LeetCode problem the exam problem is likely based on (`-` = none found).
+
+#### Exam Rank 03
+
+| Level | Problem | LeetCode |
+|---|---|---|
+| 1 | cryptic_sorter | - |
+| 1 | inter | 349. Intersection of Two Arrays |
+| 2 | echo_validator | 125. Valid Palindrome |
+| 2 | mirror_matrix | - |
+| 3 | hidenp | 392. Is Subsequence |
+| 3 | number_base_converter | - |
+| 3 | pattern_tracker | - |
+| 4 | anagram | 242. Valid Anagram |
+| 4 | shadow_merge | 21. Merge Two Sorted Lists |
+| 4 | string_permutation_checker | 242. Valid Anagram |
+| 5 | string_sculptor | - |
+| 5 | twist_sequence | 189. Rotate Array |
+| 6 | bracket_validator | 20. Valid Parentheses |
+| 6 | whisper_cipher | - |
+
+#### Exam Rank 04
+
+| Level | Problem | LeetCode |
+|---|---|---|
+| 1 | array_rotation_detector | 796. Rotate String |
+| 1 | constellation_mapper | - |
+| 1 | list_intersection_finder | 349. Intersection of Two Arrays |
+| 2 | merge_sorted_list | 23. Merge k Sorted Lists |
+| 2 | palindrome_partitioner | 132. Palindrome Partitioning II |
+| 2 | sliding_window_maximium | 239. Sliding Window Maximum |
+| 3 | package_dependency_resolver | 210. Course Schedule II |
+
+#### Exam Rank 05
+
+| Level | Problem | LeetCode |
+|---|---|---|
+| 1 | compress_decompress | - |
+| 1 | spiral_matrix | 54. Spiral Matrix |
+| 2 | graph_cycle_detector | 207. Course Schedule |
+| 2 | island_matrix_counter | 200. Number of Islands |
+| 2 | schedule_meetings | 253. Meeting Rooms II |
+| 3 | prism_detector | 79. Word Search |
+| 3 | word_ladder | 127. Word Ladder |
 
 ---
 
 ## 日本語
 
-### 背景
+### 中身
 
-42のPythonカリキュラムにおけるExam Rank 05は、非公式まとめサイト（42exam.netファミリーのrank05.42exam.net、exam3/exam4と同系列のサイト）で現在公開されています。Rank 06はまだ公開情報がありません。それ以外でGitHub上で「exam rank 05/06」を名乗るリポジトリは調べる限り旧C++カリキュラムの名残でした。
+| ディレクトリ | 内容 |
+|---|---|
+| `exam3/` | Exam Rank 03、level1〜level6、14問 |
+| `exam4/` | Exam Rank 04、level1〜level3、7問 |
+| `exam5/` | Exam Rank 05、level1〜level3、7問 |
+| `leetcode/` | exam問題の元ネタのLeetCode問題 + NeetCode 150（計155問） |
+| `leetcode_normal/ans/` | `leetcode/`の読みやすさ重視の別解 |
+| `STUDY_PLAN.md` | 日次の学習計画 |
+| `_template.py` | 問題追加用テンプレート |
 
-### このリポジトリの中身
+各ディレクトリの下は3つに分かれている。
 
-- 自分の`exam_rank03_practice-python-`と`42_exam_rank04_simulator_python`にある問題を、本番のexamと同じ制約（`sorted()`/`.sort()`/`set()`/`heapq`/`Counter`/`deque`全面禁止）で解き直したもの。
-- rank05.42exam.netから取得したexam5の7問も、同じ禁止built-in制約で解き直して収録。
-- exam3/exam4/exam5の問題は実態としてLeetCodeの有名問題をリネーム・軽い改変したものであることが多いため、元ネタと思われるLeetCode問題を`leetcode/`に別途収録し、各exam問題のquestionファイルからどのLeetCode問題に対応するかを参照できるようにしてある（下の対応表を参照）。
-- それに加えて、Rank6もexam3/4/5と同じ「LeetCodeのリネーム」パターンを踏襲している可能性が高いという想定のもと、`leetcode/`には**NeetCode 150の全150問**（exam3/4対応表と重複する7問を除く）も同じ方式（禁止built-inなし）で収録済み。うち7問（Encode and Decode Strings, Walls and Gates, Graph Valid Tree, Number of Connected Components, Alien Dictionary, Meeting Rooms, Meeting Rooms II）はLeetCode Premium限定問題のため、APIから取得した公式問題文ではなく一般知識に基づくパラフレーズで書いてある。
+- `question/` — 問題文
+- `pra/` — 練習用（関数の中身は空、テストケース付き）
+- `ans/` — 解答
 
-### ディレクトリ構成
+`ans/`の解答は`sorted()`・`.sort()`・`set()`・`heapq`・`Counter`・`deque`を使っていない。
 
-出典（`exam3` / `exam4` / `exam5` / `leetcode`）ごとにサブフォルダを分けている。`exam3`は`level1`〜`level6`、`exam4`と`exam5`は`level1`〜`level3`と、そもそも難易度レベルの基準が別物の出典サイトなので、統一のlevel番号にはマージしていない。
+### 使い方
 
-```
-<出典>/ans/        解答
-<出典>/question/   問題文
-<出典>/pra/        自己練習用スタブ
-_template.py       新しい問題を追加する時はこれをコピー
-
-exam3/{ans,question,pra}/level1〜level6/   # 14問
-exam4/{ans,question,pra}/level1〜level3/   # 7問
-exam5/{ans,question,pra}/level1〜level3/   # 7問
-leetcode/{ans,question,pra}/               # LeetCode由来の問題
-leetcode_normal/ans/                       # 読みやすさ重視の別解
-```
-
-- **`ans/`**: 解答。`sorted()`/`.sort()`/`set()`/`heapq`/`Counter`/`deque`は一切使わず、全部手で書く（挿入ソート、dictを使った手動ハッシュ、素のlistによるスタック/キューなど）。
-- **`question/`**: 問題文。exam3/exam4は元リポジトリの`Subject/`・`questions/`を基にリライトし、`leetcode/`はLeetCodeの文章をそのまま転載せず（著作権配慮）パラフレーズして書いてあり、冒頭に`Based on: LeetCode ###. Title`と明記してある。
-- **`pra/`**: 自己練習用スタブ。関数本体は`pass`から始め、`check(label, actual, expected)`で`[OK]`/`[NG]`を出しながら自己採点する。新しい問題を足すときは`_template.py`をコピーする。
-
-### `ans/`に書くときのルール
-
-本番のmoulinetteが弾くのと同じ扱いで、以下を全面禁止する：
-
-- `sorted()`, `list.sort()`
-- `set()`, setリテラル
-- `heapq`モジュール
-- `collections.Counter`, `collections.deque`
-- 上記に相当する標準ライブラリの糖衣構文（`itertools`の集約系関数など）
-
-比較・交換・探索・整列はすべて素のループ・インデックス操作・再帰で書く（挿入ソート、線形探索、手書き二分ヒープ、dictによる手動ハッシュマップなど）。なお、出力の順序が問われない問題で`check()`呼び出し側（テストコード側）が比較のために`sorted()`/`set()`を使うのは問題ない。禁止対象はあくまで解答（Ans）そのものであり、テストハーネス側のコードではない。
-
-### `pra/`の使い方
+1. `question/`で問題を読む
+2. `pra/`の関数を実装する
+3. 実行して全ケース`[OK]`になることを確認する
+4. `ans/`と見比べる
 
 ```sh
-python3 exam3/pra/level1/py_cryptic_sorter.py
-python3 exam4/pra/level2/py_merge_sorted_list.py
-python3 exam5/pra/level2/py_island_matrix_counter.py
-python3 leetcode/pra/lc001_two_sum.py
+python3 exam5/pra/level1/py_spiral_matrix.py
 ```
 
-各ファイルは自己完結型。関数を実装して直接実行し、全ケースで`[OK]`が出ることを確認する。
+練習ファイルはgitで元に戻せる。何度でもリセットしてやり直せる。
 
-### exam問題 ⇔ 元ネタLeetCode 対応表
+```sh
+git restore .                # 全部リセット
+git restore exam5/pra/       # exam5の練習ファイルだけリセット
+```
 
-| 出典 | 問題 | 対応するLeetCode | 確信度 |
-|---|---|---|---|
-| exam3/level1 | cryptic_sorter | 対応なし（近いのは179. Largest Numberの発想） | 低 |
-| exam3/level1 | inter | 349. Intersection of Two Arrays | 中 |
-| exam3/level2 | echo_validator | **125. Valid Palindrome** | 高 |
-| exam3/level2 | mirror_matrix | 対応なし（48. Rotate Imageの部品に近い） | 低 |
-| exam3/level3 | hidenp | **392. Is Subsequence** | 高 |
-| exam3/level3 | number_base_converter | 対応なし（504. Base 7を汎用化した発想） | 低 |
-| exam3/level3 | pattern_tracker | 対応なし | - |
-| exam3/level4 | anagram | **242. Valid Anagram** | 高 |
-| exam3/level4 | shadow_merge | **21. Merge Two Sorted Lists** | 高 |
-| exam3/level4 | string_permutation_checker | **242. Valid Anagram**（大文字小文字区別版） | 高 |
-| exam3/level5 | string_sculptor | 対応なし | - |
-| exam3/level5 | twist_sequence | **189. Rotate Array** | 高 |
-| exam3/level6 | bracket_validator | **20. Valid Parentheses** | 高 |
-| exam3/level6 | whisper_cipher | 対応なし（2325. Decode the Messageに近い発想） | 低 |
-| exam4/level1 | array_rotation_detector | **796. Rotate String**（配列版） | 高 |
-| exam4/level1 | constellation_mapper | 対応なし | - |
-| exam4/level1 | list_intersection_finder | **349. Intersection of Two Arrays**（複数リストに一般化） | 中 |
-| exam4/level2 | merge_sorted_list | **23. Merge k Sorted Lists** | 高 |
-| exam4/level2 | palindrome_partitioner | **132. Palindrome Partitioning II** | 高 |
-| exam4/level2 | sliding_window_maximium | **239. Sliding Window Maximum** | 高 |
-| exam4/level3 | package_dependency_resolver | **210. Course Schedule II**（+ 波ごとのタイブレークが1203.に近い） | 高 |
-| exam5/level1 | compress_decompress | 対応なし（443. String Compressionに近い発想） | 低 |
-| exam5/level1 | spiral_matrix | **54. Spiral Matrix**（数字を生成する版は59. Spiral Matrix IIだが本リポジトリ未収録） | 高 |
-| exam5/level2 | graph_cycle_detector | **207. Course Schedule** | 高 |
-| exam5/level2 | schedule_meetings | **253. Meeting Rooms II**（部屋ごとの割り当ても返す点が拡張） | 高 |
-| exam5/level2 | island_matrix_counter | **200. Number of Islands** | 高 |
-| exam5/level3 | prism_detector | **79. Word Search**（8方向探索・全一致位置と方向コードを返す拡張版） | 中 |
-| exam5/level3 | word_ladder | **127. Word Ladder** | 高 |
+注意: `git restore .`はリポジトリ内のコミットしていない変更をすべて破棄する。
 
-「確信度: 低」「対応なし」の問題はLeetCodeに直接の元ネタが見当たらなかったもの。存在しない問題番号は書いていないので、`leetcode/`フォルダにはこれら対応なしの問題は収録していない。
+### 問題一覧
+
+LeetCode列: 元ネタと思われるLeetCode問題（`-` = 該当なし）。
+
+#### Exam Rank 03
+
+| レベル | 問題 | LeetCode |
+|---|---|---|
+| 1 | cryptic_sorter | - |
+| 1 | inter | 349. Intersection of Two Arrays |
+| 2 | echo_validator | 125. Valid Palindrome |
+| 2 | mirror_matrix | - |
+| 3 | hidenp | 392. Is Subsequence |
+| 3 | number_base_converter | - |
+| 3 | pattern_tracker | - |
+| 4 | anagram | 242. Valid Anagram |
+| 4 | shadow_merge | 21. Merge Two Sorted Lists |
+| 4 | string_permutation_checker | 242. Valid Anagram |
+| 5 | string_sculptor | - |
+| 5 | twist_sequence | 189. Rotate Array |
+| 6 | bracket_validator | 20. Valid Parentheses |
+| 6 | whisper_cipher | - |
+
+#### Exam Rank 04
+
+| レベル | 問題 | LeetCode |
+|---|---|---|
+| 1 | array_rotation_detector | 796. Rotate String |
+| 1 | constellation_mapper | - |
+| 1 | list_intersection_finder | 349. Intersection of Two Arrays |
+| 2 | merge_sorted_list | 23. Merge k Sorted Lists |
+| 2 | palindrome_partitioner | 132. Palindrome Partitioning II |
+| 2 | sliding_window_maximium | 239. Sliding Window Maximum |
+| 3 | package_dependency_resolver | 210. Course Schedule II |
+
+#### Exam Rank 05
+
+| レベル | 問題 | LeetCode |
+|---|---|---|
+| 1 | compress_decompress | - |
+| 1 | spiral_matrix | 54. Spiral Matrix |
+| 2 | graph_cycle_detector | 207. Course Schedule |
+| 2 | island_matrix_counter | 200. Number of Islands |
+| 2 | schedule_meetings | 253. Meeting Rooms II |
+| 3 | prism_detector | 79. Word Search |
+| 3 | word_ladder | 127. Word Ladder |
