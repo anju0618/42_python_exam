@@ -81,25 +81,25 @@ while top <= bottom and left <= right:
 
 ## 3. py_graph_cycle_detector (level2)
 
-**暗記ポイント**: 有向グラフの閉路検出は「訪問済みか」ではなく「**今たどっている道の上にいるか**」で判定する。道に入るときに `visiting` に入れ、戻るときに消す。
+**暗記ポイント**: 有向グラフの閉路検出は「訪問済みか」ではなく「**今たどっている道の上にいるか**」で判定する。道に入るときに `True`、戻るときに `False` にする。
 
 ### 型
 ```python
-visiting = {}                      # 今の道に乗っているノード(set()禁止なのでdict)
+visiting = {}                      # 今の道に乗っているノードがTrue(set()禁止なのでdict)
 
 def dfs(node):
-    if node in visiting: return True       # 今の道に戻ってきた=閉路
+    if visiting.get(node): return True     # 今の道に戻ってきた=閉路
     visiting[node] = True                  # 道に入る
     for n in graph.get(node, []):
         if dfs(n): return True
-    del visiting[node]                     # ★戻るときに道から消す
+    visiting[node] = False                 # ★戻るときにFalseに戻す
     return False
 
 for node in graph:                 # ★非連結成分すべてを起点にする
     if dfs(node): return True
 return False
 ```
-- **最重要**: 戻るときの `del visiting[node]` を忘れない。消さないと `A→B, A→C, B→C` のように別の道から同じノードに着いただけで閉路と誤判定する。
+- **最重要**: 戻るときの `visiting[node] = False` を忘れない。戻さないと `A→B, A→C, B→C` のように別の道から同じノードに着いただけで閉路と誤判定する。
 - `graph.get(node, [])` で辞書にないノードも安全に処理。
 - 外側の `for node in graph` で非連結成分すべてをカバー。空のグラフはループが回らず `False`。
 
