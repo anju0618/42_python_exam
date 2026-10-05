@@ -1,26 +1,17 @@
 def schedule_meetings(intervals: list[tuple[int, int]]) -> tuple[int, list]:
-    if not intervals:
-        return (0, [])
-
-    ordered = list(intervals)
-    for i in range(1, len(ordered)):
-        key = ordered[i]
-        j = i - 1
-        while j >= 0 and ordered[j][0] > key[0]:
-            ordered[j + 1] = ordered[j]
-            j -= 1
-        ordered[j + 1] = key
+    ordered = []
+    for m in intervals:
+        i = 0
+        while i < len(ordered) and ordered[i][0] <= m[0]:
+            i += 1
+        ordered.insert(i, m)
 
     rooms = []
-    for meeting in ordered:
-        start, _ = meeting
-        assigned = False
+    for m in ordered:
         for room in rooms:
-            if room[-1][1] <= start:
-                room.append(meeting)
-                assigned = True
+            if room[-1][1] <= m[0]:
+                room.append(m)
                 break
-        if not assigned:
-            rooms.append([meeting])
-
+        else:
+            rooms.append([m])
     return (len(rooms), rooms)
