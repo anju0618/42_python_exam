@@ -3,7 +3,7 @@ def schedule_meetings(intervals: list[tuple[int, int]]) -> tuple[int, list]:
     for m in intervals:
         ordered.append(m)
     n = len(ordered)
-    for i in range(n):
+    for _ in range(n):
         for j in range(n - 1):
             if ordered[j][0] > ordered[j + 1][0]:
                 ordered[j], ordered[j + 1] = ordered[j + 1], ordered[j]
