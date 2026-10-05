@@ -152,16 +152,28 @@ def dfs(r, c):
 
 ### 型
 ```python
-for room in rooms:
-    if room[-1][1] <= start:     # 終了==開始は重ならない扱い(★ <= )
-        room.append(meeting); assigned = True; break
-if not assigned:
-    rooms.append([meeting])
+ordered = []
+for m in intervals:                       # ソート: 入れる場所iを探してinsert
+    i = 0
+    while i < len(ordered) and ordered[i][0] <= m[0]:
+        i += 1
+    ordered.insert(i, m)
+
+rooms = []
+for m in ordered:
+    for room in rooms:
+        if room[-1][1] <= m[0]:           # 終了==開始は重ならない扱い(★ <= )
+            room.append(m)
+            break
+    else:                                 # breakしなかった = どの部屋にも入らなかった
+        rooms.append([m])
+return (len(rooms), rooms)
 ```
-- **最重要**: 比較は `<=`。会議 `(5,10)` と `(10,15)` は同じ部屋に入れてよい。
-- ソートは安定でないといけない(開始時刻が同じ会議は入力順を保つ)。挿入ソートは安定。
-- 元の入力リストは変更しない(コピーしてからソート)。
-- 空入力は `(0, [])`。
+- **最重要**: 部屋の比較は `<=`。会議 `(5,10)` と `(10,15)` は同じ部屋に入れてよい。
+- `for-else` の `else` は **breakしなかったときだけ** 実行される。
+- ソートの `while` も `<=`。開始時刻が同じ会議は後ろに入るので入力順が保たれる(安定)。
+- `ordered` は新しいリストに入れていくので、元の入力は変更しない(`list()` でコピー不要)。
+- 空入力はループが回らずそのまま `(0, [])` になる(特別扱い不要)。
 
 ### 覚えるトレース: `[(0,30), (5,10), (15,20)]`
 - (0,30) → 部屋なし → 新規: `[[(0,30)]]`
