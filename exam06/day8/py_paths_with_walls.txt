@@ -1,0 +1,30 @@
+py_paths_with_walls  [Medium]
+
+Assignment
+A robot starts at the top-left cell and wants to reach the bottom-right
+cell. It can only move right or down. Cells with 1 are walls, 0 are free.
+Return the number of different paths (0 if start or end is a wall).
+
+Function signature
+def paths_with_walls(grid: list[list[int]]) -> int:
+
+Examples
+Input
+paths_with_walls([[0,0,0],[0,1,0],[0,0,0]])
+Output
+2
+Input
+paths_with_walls([[0,1],[0,0]])
+Output
+1
+
+---------- 和訳 ----------
+課題
+ロボットは左上から右下へ、右か下にだけ動ける。1 は壁、0 は通れるセル。
+異なる経路の数を返す(スタートまたはゴールが壁なら 0)。
+
+関数シグネチャ
+def paths_with_walls(grid: list[list[int]]) -> int:
+
+例
+(上記の Examples 参照)

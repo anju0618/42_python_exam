@@ -1,0 +1,39 @@
+py_alien_order  [Hard]
+
+Assignment
+`words` is a list of words sorted in the dictionary order of an unknown
+alphabet. Return the letters in a valid order of that alphabet (all letters
+that appear in `words`). If several orders are valid, at each step choose
+the alphabetically smallest letter that can come next.
+Return "" if the input is contradictory (a cycle, or a longer word coming
+before its own prefix, such as ["abc", "ab"]).
+
+Function signature
+def alien_order(words: list[str]) -> str:
+
+Examples
+Input
+alien_order(["wrt","wrf","er","ett","rftt"])
+Output
+"wertf"
+Input
+alien_order(["z","x"])
+Output
+"zx"
+Input
+alien_order(["z","x","z"])
+Output
+""
+
+---------- 和訳 ----------
+課題
+`words` は、未知のアルファベット順で辞書順に並んだ単語のリスト。使われている全ての文字を
+その順序で並べた文字列を返す。順序が複数ありうるときは、各ステップで「次に来られる文字のうち
+a,b,c… の順で最小のもの」を選ぶ。矛盾している(循環、または ["abc","ab"] のように
+接頭辞より長い語が先に来る)なら "" を返す。
+
+関数シグネチャ
+def alien_order(words: list[str]) -> str:
+
+例
+(上記の Examples 参照)

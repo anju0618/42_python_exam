@@ -1,0 +1,34 @@
+py_decode_ways  [Medium]
+
+Assignment
+The mapping is 'A'=1, 'B'=2, ..., 'Z'=26. Given a string of digits,
+return the number of ways to decode it into letters. A group like "06" or
+"0" is not valid. Return 0 if it cannot be decoded (or `s` is empty).
+
+Function signature
+def decode_ways(s: str) -> int:
+
+Examples
+Input
+decode_ways("12")
+Output
+2
+Input
+decode_ways("226")
+Output
+3
+Input
+decode_ways("06")
+Output
+0
+
+---------- 和訳 ----------
+課題
+対応は 'A'=1, 'B'=2, … 'Z'=26。数字の文字列 `s` を文字にデコードする方法が何通りあるか返す。
+"0" や "06" のような区切りは無効。デコードできない(または `s` が空)なら 0。
+
+関数シグネチャ
+def decode_ways(s: str) -> int:
+
+例
+(上記の Examples 参照)

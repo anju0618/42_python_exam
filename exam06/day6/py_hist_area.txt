@@ -1,0 +1,34 @@
+py_hist_area  [Hard]
+
+Assignment
+`heights` are the bar heights of a histogram; every bar has width 1.
+Return the area of the largest rectangle that fits inside the histogram
+(a rectangle may span several neighbouring bars; its height is limited by
+the shortest of them). Return 0 for an empty list.
+
+Aim for O(n) with a stack. (O(n^2) passes the small tests only.)
+
+Function signature
+def hist_area(heights: list[int]) -> int:
+
+Examples
+Input
+hist_area([2,1,5,6,2,3])
+Output
+10
+Input
+hist_area([2,4])
+Output
+4
+
+---------- 和訳 ----------
+課題
+`heights` はヒストグラムの棒の高さ(幅はすべて1)。ヒストグラムの中に収まる最大の長方形の
+面積を返す(隣り合う複数の棒にまたがってよく、高さは最も低い棒で決まる)。空なら 0。
+スタックで O(n) を目指すこと。
+
+関数シグネチャ
+def hist_area(heights: list[int]) -> int:
+
+例
+(上記の Examples 参照)

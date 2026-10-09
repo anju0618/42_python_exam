@@ -1,0 +1,30 @@
+py_queens_count  [Hard]
+
+Assignment
+Place n queens on an n x n chessboard so that no two queens attack each
+other (same row, same column or same diagonal).
+Return the number of distinct solutions.
+
+Function signature
+def queens_count(n: int) -> int:
+
+Examples
+Input
+queens_count(4)
+Output
+2
+Input
+queens_count(1)
+Output
+1
+
+---------- 和訳 ----------
+課題
+n×n のチェス盤に n 個のクイーンを、互いに攻撃しないように
+(同じ行・列・斜めに置かない)置く。置き方が何通りあるかを返す。
+
+関数シグネチャ
+def queens_count(n: int) -> int:
+
+例
+(上記の Examples 参照)

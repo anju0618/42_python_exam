@@ -1,0 +1,37 @@
+py_cool_days  [Medium]
+
+Assignment
+For each day i, return how many days you must wait until a strictly
+warmer temperature. If there is no warmer day in the future, return 0 for
+that day.
+
+Aim for O(n): a stack of indices works. (An O(n^2) loop passes the small
+tests here, but the real exam may use big inputs.)
+
+Function signature
+def cool_days(temps: list[int]) -> list[int]:
+
+Examples
+Input
+cool_days([73,74,75,71,69,72,76,73])
+Output
+[1, 1, 4, 2, 1, 1, 0, 0]
+Input
+cool_days([30,40,50,60])
+Output
+[1, 1, 1, 0]
+Input
+cool_days([30,60,90])
+Output
+[1, 1, 0]
+
+---------- 和訳 ----------
+課題
+各日 i について、より暖かい日(厳密に高い)までの日数を返す。将来に暖かい日が無ければ 0。
+O(n) を目指すこと(添字のスタックを使う)。O(n^2) でも小さいテストは通るが、本番は大きい入力かもしれない。
+
+関数シグネチャ
+def cool_days(temps: list[int]) -> list[int]:
+
+例
+(上記の Examples 参照)

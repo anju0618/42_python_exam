@@ -1,0 +1,30 @@
+py_group_anagrams  [Medium]
+
+Assignment
+Group the words that are anagrams of each other (same letters, same
+counts). Groups appear in the order of their first word in `words`, and
+words inside a group keep their input order.
+
+Function signature
+def group_anagrams(words: list[str]) -> list[list[str]]:
+
+Examples
+Input
+group_anagrams(["eat","tea","tan","ate","nat","bat"])
+Output
+[["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]
+Input
+group_anagrams([""])
+Output
+[[""]]
+
+---------- 和訳 ----------
+課題
+互いにアナグラム(同じ文字・同じ個数)になっている単語をグループにまとめる。
+グループは「最初の単語が現れた順」、グループ内は入力順を保つ。
+
+関数シグネチャ
+def group_anagrams(words: list[str]) -> list[list[str]]:
+
+例
+(上記の Examples 参照)

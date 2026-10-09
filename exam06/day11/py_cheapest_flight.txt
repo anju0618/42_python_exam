@@ -1,0 +1,35 @@
+py_cheapest_flight  [Hard]
+
+Assignment
+There are n cities 0 .. n-1. Each [from, to, price] in `flights` is a
+one-way flight. Return the cheapest price from `src` to `dst` using at most
+k stops (k stops = at most k+1 flights). Return -1 if impossible.
+
+Function signature
+def cheapest_flight(n: int, flights: list[list[int]], src: int, dst: int, k: int) -> int:
+
+Examples
+FL = [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]]
+Input
+cheapest_flight(4, FL, 0, 3, 1)
+Output
+700
+Input
+cheapest_flight(3, [[0,1,100],[1,2,100],[0,2,500]], 0, 2, 1)
+Output
+200
+Input
+cheapest_flight(3, [[0,1,100],[1,2,100],[0,2,500]], 0, 2, 0)
+Output
+500
+
+---------- 和訳 ----------
+課題
+都市は 0〜n-1。`flights` の [from, to, price] は片道の航空券。`src` から `dst` まで、
+乗り継ぎ(経由地)が最大 k 回(= フライト最大 k+1 回)で行ける最安の価格を返す。不可能なら -1。
+
+関数シグネチャ
+def cheapest_flight(n: int, flights: list[list[int]], src: int, dst: int, k: int) -> int:
+
+例
+(上記の Examples 参照)

@@ -1,0 +1,29 @@
+py_bracket_builder  [Medium]
+
+Assignment
+Return all well-formed strings made of n pairs of parentheses.
+The result must be in lexicographic order ('(' comes before ')').
+
+Function signature
+def bracket_builder(n: int) -> list[str]:
+
+Examples
+Input
+bracket_builder(3)
+Output
+["((()))", "(()())", "(())()", "()(())", "()()()"]
+Input
+bracket_builder(1)
+Output
+["()"]
+
+---------- 和訳 ----------
+課題
+n 組の括弧でできる、正しく閉じた文字列をすべて返す。
+結果は辞書順('(' は ')' より前)で並べること。
+
+関数シグネチャ
+def bracket_builder(n: int) -> list[str]:
+
+例
+(上記の Examples 参照)

@@ -1,0 +1,30 @@
+py_k_closest  [Medium]
+
+Assignment
+Return the k points closest to the origin (0, 0), using Euclidean
+distance. The result is ordered from the closest to the farthest; points
+at the same distance keep their input order.
+
+Function signature
+def k_closest(points: list[list[int]], k: int) -> list[list[int]]:
+
+Examples
+Input
+k_closest([[1,3],[-2,2]], 1)
+Output
+[[-2, 2]]
+Input
+k_closest([[3,3],[5,-1],[-2,4]], 2)
+Output
+[[3, 3], [-2, 4]]
+
+---------- 和訳 ----------
+課題
+原点 (0, 0) に近い順に k 個の点を返す(ユークリッド距離)。結果は近い順。
+距離が同じ点は入力順を保つ。
+
+関数シグネチャ
+def k_closest(points: list[list[int]], k: int) -> list[list[int]]:
+
+例
+(上記の Examples 参照)

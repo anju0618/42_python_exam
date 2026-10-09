@@ -1,0 +1,35 @@
+py_word_hunt  [Medium]
+
+Assignment
+Return True if `word` can be spelled by walking on `board` through
+adjacent cells (up, down, left, right). The same cell cannot be used twice
+in one word.
+
+Function signature
+def word_hunt(board: list[list[str]], word: str) -> bool:
+
+Examples
+BOARD = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+Input
+word_hunt(BOARD, "ABCCED")
+Output
+True
+Input
+word_hunt(BOARD, "SEE")
+Output
+True
+Input
+word_hunt(BOARD, "ABCB")
+Output
+False
+
+---------- 和訳 ----------
+課題
+`board` 上を上下左右に隣り合うセルへ進みながら `word` を綴れるなら True。
+1つの単語の中で同じセルを2回使ってはいけない。
+
+関数シグネチャ
+def word_hunt(board: list[list[str]], word: str) -> bool:
+
+例
+(上記の Examples 参照)

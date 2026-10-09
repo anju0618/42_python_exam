@@ -1,0 +1,29 @@
+py_pack_strings  [Medium]
+
+Assignment
+Write two functions:
+
+  pack(strs)    turn a list of strings into ONE string
+  unpack(s)     turn that string back into the original list
+
+For every list of strings, unpack(pack(strs)) must equal strs. The strings
+may contain ANY characters (digits, '#', spaces, newlines...) and may be
+empty. An empty list and a list holding one empty string [""] are different.
+Do not use json, pickle or eval.
+
+Examples
+unpack(pack(["hello", "world"]))  -> ["hello", "world"]
+unpack(pack([]))                  -> []
+unpack(pack([""]))                -> [""]
+
+---------- 和訳 ----------
+課題
+2つの関数を書く。
+  pack(strs)   文字列のリストを「1つの文字列」にする
+  unpack(s)    それを元のリストに戻す
+どんなリストでも unpack(pack(strs)) == strs になること。文字列には任意の文字
+(数字、'#'、空白、改行…)が含まれてよく、空文字列もありうる。
+空のリスト [] と、空文字列1つのリスト [""] は区別すること。json / pickle / eval は使わない。
+
+例
+(上記の Examples 参照)

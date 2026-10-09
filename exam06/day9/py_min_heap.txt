@@ -1,0 +1,29 @@
+py_min_heap  [Hard]
+
+Assignment
+Implement a class MinHeap (a binary heap stored in a list). Do not use
+heapq.
+
+  push(x)   add a value
+  pop()     remove and return the smallest value (None if empty)
+  peek()    return the smallest value without removing it (None if empty)
+  size()    number of values
+
+push and pop should take O(log n) (sift up / sift down).
+
+Examples
+h = MinHeap()
+h.push(5); h.push(3); h.push(8)
+h.pop()   -> 3
+h.peek()  -> 5
+h.size()  -> 2
+
+---------- 和訳 ----------
+課題
+クラス MinHeap(リストで持つ二分ヒープ)を実装する。heapq は使わない。
+  push(x)  値を追加   pop()  最小値を取り出して返す(空なら None)
+  peek()   最小値を返す(取り出さない。空なら None)   size()  要素数
+push / pop は O(log n)(sift up / sift down)であること。
+
+例
+(上記の Examples 参照)

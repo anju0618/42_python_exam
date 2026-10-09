@@ -1,0 +1,32 @@
+py_room_planner  [Medium]
+
+Assignment
+Each meeting is [start, end) (the end time is exclusive). Two meetings
+can use the same room if one ends exactly when the other starts.
+
+Return the minimum number of rooms needed to hold all meetings.
+Return 0 if there are no meetings.
+
+Function signature
+def room_planner(meetings: list[list[int]]) -> int:
+
+Examples
+Input
+room_planner([[0,30],[5,10],[15,20]])
+Output
+2
+Input
+room_planner([[7,10],[2,4]])
+Output
+1
+
+---------- 和訳 ----------
+課題
+各会議は [start, end)(end は含まない)。一方が終わる時刻に他方が始まるなら
+同じ部屋を使える。全会議を開くのに必要な最小の部屋数を返す。会議が無ければ 0。
+
+関数シグネチャ
+def room_planner(meetings: list[list[int]]) -> int:
+
+例
+(上記の Examples 参照)

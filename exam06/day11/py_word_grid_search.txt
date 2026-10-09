@@ -1,0 +1,34 @@
+py_word_grid_search  [Hard]
+
+Assignment
+Return every word of `words` that can be built on `board` by walking
+through adjacent cells (up, down, left, right) without using a cell twice
+inside one word. The result keeps the order of `words`.
+
+(With many words, a Trie makes this fast. See py_prefix_dictionary.)
+
+Function signature
+def word_grid_search(board: list[list[str]], words: list[str]) -> list[str]:
+
+Examples
+B2 = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]]
+Input
+word_grid_search(B2, ["oath","pea","eat","rain"])
+Output
+["oath", "eat"]
+Input
+word_grid_search([["a","b"],["c","d"]], ["abcb"])
+Output
+[]
+
+---------- 和訳 ----------
+課題
+`words` の単語のうち、`board` 上を上下左右に隣り合うセルへ(同じセルを2回使わずに)
+たどって作れるものをすべて返す。結果は `words` の順序を保つ。
+(単語が多いときはトライ木で速くなる。py_prefix_dictionary 参照)
+
+関数シグネチャ
+def word_grid_search(board: list[list[str]], words: list[str]) -> list[str]:
+
+例
+(上記の Examples 参照)

@@ -1,0 +1,41 @@
+py_lock_opener  [Hard]
+
+Assignment
+A lock has 4 circular wheels, each showing a digit '0'..'9'. A move turns
+ONE wheel by one step (9 -> 0 and 0 -> 9 are both allowed). The lock
+starts at "0000".
+
+`deadends` lists states that lock the mechanism: if the lock ever shows one
+of them, no further move is possible.
+
+Return the minimum number of moves to reach `target`, or -1 if impossible.
+(If "0000" itself is a deadend, return -1.)
+
+Function signature
+def lock_opener(deadends: list[str], target: str) -> int:
+
+Examples
+Input
+lock_opener(["0201","0101","0102","1212","2002"], "0202")
+Output
+6
+Input
+lock_opener(["8888"], "0009")
+Output
+1
+Input
+lock_opener(["8887","8889","8878","8898","8788","8988","7888","9888"], "8888")
+Output
+-1
+
+---------- 和訳 ----------
+課題
+4つの輪があり、各輪は '0'〜'9' の数字を表示する(循環する)。1手で「1つの輪を1つ回す」
+(9→0、0→9 も可)。初期状態は "0000"。`deadends` の状態になると動かせなくなる。
+`target` にたどり着く最小手数を返す。不可能なら -1。("0000" 自体が deadend なら -1)
+
+関数シグネチャ
+def lock_opener(deadends: list[str], target: str) -> int:
+
+例
+(上記の Examples 参照)

@@ -1,0 +1,30 @@
+py_text_distance  [Hard]
+
+Assignment
+Return the minimum number of operations to turn string `a` into string
+`b`. One operation is: insert a character, delete a character, or replace
+a character.
+
+Function signature
+def text_distance(a: str, b: str) -> int:
+
+Examples
+Input
+text_distance("horse", "ros")
+Output
+3
+Input
+text_distance("intention", "execution")
+Output
+5
+
+---------- 和訳 ----------
+課題
+文字列 a を b に変えるための最小操作回数を返す。
+1操作は「1文字挿入」「1文字削除」「1文字置換」のいずれか。
+
+関数シグネチャ
+def text_distance(a: str, b: str) -> int:
+
+例
+(上記の Examples 参照)

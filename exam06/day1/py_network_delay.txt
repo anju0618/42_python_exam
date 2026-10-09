@@ -1,0 +1,40 @@
+py_network_delay  [Hard]
+
+Assignment
+A network has n nodes labeled 1 .. n. Each entry [u, v, w] in `times` is a
+directed link: a signal sent from u arrives at v after w time units.
+
+A signal is sent from node k. Return the time it takes for ALL nodes to
+receive it. Return -1 if some node can never receive it.
+
+(Do not use heapq. Scanning a plain list for the nearest node is fine.)
+
+Function signature
+def network_delay(times: list[list[int]], n: int, k: int) -> int:
+
+Examples
+Input
+network_delay([[2,1,1],[2,3,1],[3,4,1]], 4, 2)
+Output
+2
+Input
+network_delay([[1,2,1]], 2, 1)
+Output
+1
+Input
+network_delay([[1,2,1]], 2, 2)
+Output
+-1
+
+---------- 和訳 ----------
+課題
+ネットワークにはノード 1〜n がある。`times` の [u, v, w] は有向リンクで、
+u から送った信号は w 時間後に v に届く。
+ノード k から信号を送り、全ノードが受信するまでの時間を返す。
+届かないノードがあれば -1。(heapq は使わない。リストを線形に走査してよい)
+
+関数シグネチャ
+def network_delay(times: list[list[int]], n: int, k: int) -> int:
+
+例
+(上記の Examples 参照)

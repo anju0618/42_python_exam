@@ -1,0 +1,28 @@
+py_longest_palindrome_sub  [Medium]
+
+Assignment
+Return the longest palindromic substring of `s`. If several have the
+same length, return the leftmost. Return "" for an empty string.
+
+Function signature
+def longest_palindrome_sub(s: str) -> str:
+
+Examples
+Input
+longest_palindrome_sub("babad")
+Output
+"bab"
+Input
+longest_palindrome_sub("cbbd")
+Output
+"bb"
+
+---------- 和訳 ----------
+課題
+`s` の部分文字列のうち最長の回文を返す。同じ長さが複数あれば最も左のもの。空文字列なら ""。
+
+関数シグネチャ
+def longest_palindrome_sub(s: str) -> str:
+
+例
+(上記の Examples 参照)

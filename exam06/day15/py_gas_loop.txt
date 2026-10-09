@@ -1,0 +1,33 @@
+py_gas_loop  [Medium]
+
+Assignment
+There are stations on a circle. At station i you get gas[i] fuel, and
+driving from i to i+1 costs cost[i]. The tank starts empty and has no limit.
+Return the index of the station to start from to drive around the full
+circle once (clockwise), or -1 if impossible. If a solution exists it is
+unique.
+
+Function signature
+def gas_loop(gas: list[int], cost: list[int]) -> int:
+
+Examples
+Input
+gas_loop([1,2,3,4,5], [3,4,5,1,2])
+Output
+3
+Input
+gas_loop([2,3,4], [3,4,3])
+Output
+-1
+
+---------- 和訳 ----------
+課題
+円周上に駅が並ぶ。駅 i で gas[i] の燃料をもらえ、i から i+1 へ進むのに cost[i] かかる。
+タンクは空から始まり容量は無制限。時計回りに1周できる出発駅の添字を返す。不可能なら -1。
+解があれば一意。
+
+関数シグネチャ
+def gas_loop(gas: list[int], cost: list[int]) -> int:
+
+例
+(上記の Examples 参照)

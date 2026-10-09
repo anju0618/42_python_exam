@@ -1,0 +1,28 @@
+py_can_reach  [Medium]
+
+Assignment
+You start at index 0. nums[i] is the maximum jump length from index i.
+Return True if you can reach the last index.
+
+Function signature
+def can_reach(nums: list[int]) -> bool:
+
+Examples
+Input
+can_reach([2,3,1,1,4])
+Output
+True
+Input
+can_reach([3,2,1,0,4])
+Output
+False
+
+---------- 和訳 ----------
+課題
+添字 0 から出発。nums[i] は添字 i からの最大ジャンプ幅。最後の添字に到達できるなら True。
+
+関数シグネチャ
+def can_reach(nums: list[int]) -> bool:
+
+例
+(上記の Examples 参照)

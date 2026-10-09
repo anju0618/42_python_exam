@@ -1,0 +1,31 @@
+py_top_k_frequent  [Medium]
+
+Assignment
+Return the k most frequent values of `nums`. Order the result by
+frequency (highest first); values with the same frequency are ordered by
+value (smallest first). You may assume k <= number of distinct values.
+(Do not use Counter. Try to avoid sorting everything if you can.)
+
+Function signature
+def top_k_frequent(nums: list[int], k: int) -> list[int]:
+
+Examples
+Input
+top_k_frequent([1,1,1,2,2,3], 2)
+Output
+[1, 2]
+Input
+top_k_frequent([1], 1)
+Output
+[1]
+
+---------- 和訳 ----------
+課題
+`nums` の中で出現回数が多い上位 k 個の値を返す。結果は出現回数の多い順で、
+回数が同じなら値が小さい順。k は異なる値の個数以下とする。(Counter は使わない)
+
+関数シグネチャ
+def top_k_frequent(nums: list[int], k: int) -> list[int]:
+
+例
+(上記の Examples 参照)

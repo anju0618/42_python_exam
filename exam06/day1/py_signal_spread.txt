@@ -1,0 +1,39 @@
+py_signal_spread  [Medium]
+
+Assignment
+Cells of a grid contain 0 (empty), 1 (receiver) or 2 (transmitter).
+Every minute, each receiver that is directly adjacent (up, down, left,
+right) to a transmitter becomes a transmitter.
+
+Return the minimum number of minutes until no receiver remains.
+Return -1 if it is impossible. Return 0 if there is no receiver at start.
+
+Function signature
+def signal_spread(grid: list[list[int]]) -> int:
+
+Examples
+Input
+signal_spread([[2,1,1],[1,1,0],[0,1,1]])
+Output
+4
+Input
+signal_spread([[2,1,1],[0,1,1],[1,0,1]])
+Output
+-1
+Input
+signal_spread([[0,2]])
+Output
+0
+
+---------- 和訳 ----------
+課題
+グリッドの各セルは 0(空)、1(受信機)、2(送信機)。
+毎分、送信機と上下左右に隣り合っている受信機は送信機になる。
+受信機が1つも残らなくなるまでの最小の分数を返す。不可能なら -1。
+最初から受信機が無ければ 0。
+
+関数シグネチャ
+def signal_spread(grid: list[list[int]]) -> int:
+
+例
+(上記の Examples 参照)

@@ -1,0 +1,28 @@
+py_min_jumps  [Medium]
+
+Assignment
+Same setting as py_can_reach, and the last index is always reachable.
+Return the minimum number of jumps to reach the last index.
+
+Function signature
+def min_jumps(nums: list[int]) -> int:
+
+Examples
+Input
+min_jumps([2,3,1,1,4])
+Output
+2
+Input
+min_jumps([2,3,0,1,4])
+Output
+2
+
+---------- 和訳 ----------
+課題
+py_can_reach と同じ設定で、最後の添字には必ず到達できる。最小のジャンプ回数を返す。
+
+関数シグネチャ
+def min_jumps(nums: list[int]) -> int:
+
+例
+(上記の Examples 参照)

@@ -1,0 +1,28 @@
+py_itinerary  [Hard]
+
+Assignment
+`tickets` are flights [from, to]. Rebuild the trip that starts at "JFK"
+and uses EVERY ticket exactly once. If several trips are possible, return
+the one that is smallest in lexical order (compare airport names as
+strings, position by position). A valid trip always exists.
+
+Function signature
+def itinerary(tickets: list[list[str]]) -> list[str]:
+
+Examples
+Input
+itinerary([["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]])
+Output
+["JFK", "MUC", "LHR", "SFO", "SJC"]
+
+---------- 和訳 ----------
+課題
+`tickets` は [出発, 到着] の航空券。"JFK" から出発し、全ての航空券をちょうど1回ずつ使う旅程を
+復元する。複数ありうるときは辞書順で最小のもの(空港名を文字列として先頭から比較)。
+必ず1つは存在するものとする。
+
+関数シグネチャ
+def itinerary(tickets: list[list[str]]) -> list[str]:
+
+例
+(上記の Examples 参照)

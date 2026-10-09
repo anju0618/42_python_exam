@@ -1,0 +1,31 @@
+py_longest_climb  [Hard]
+
+Assignment
+Return the length of the longest strictly increasing path in the matrix.
+From a cell you can move up, down, left or right (no diagonals, no leaving
+the matrix). The matrix is not empty.
+Hint: DFS with memoization.
+
+Function signature
+def longest_climb(matrix: list[list[int]]) -> int:
+
+Examples
+Input
+longest_climb([[9,9,4],[6,6,8],[2,1,1]])
+Output
+4
+Input
+longest_climb([[3,4,5],[3,2,6],[2,2,1]])
+Output
+4
+
+---------- 和訳 ----------
+課題
+行列の中の「厳密に増加する経路」の最長の長さ(セル数)を返す。上下左右に動け、斜めと
+範囲外は不可。行列は空でない。ヒント: メモ化つき DFS。
+
+関数シグネチャ
+def longest_climb(matrix: list[list[int]]) -> int:
+
+例
+(上記の Examples 参照)

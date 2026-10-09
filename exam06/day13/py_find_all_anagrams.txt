@@ -1,0 +1,30 @@
+py_find_all_anagrams  [Medium]
+
+Assignment
+Return all start indices i (ascending) such that s[i : i+len(p)] is an
+anagram of `p`. Return [] if `p` is empty or longer than `s`.
+Aim for O(len(s)): slide a window and update letter counts.
+
+Function signature
+def find_all_anagrams(s: str, p: str) -> list[int]:
+
+Examples
+Input
+find_all_anagrams("cbaebabacd", "abc")
+Output
+[0, 6]
+Input
+find_all_anagrams("abab", "ab")
+Output
+[0, 1, 2]
+
+---------- 和訳 ----------
+課題
+s[i : i+len(p)] が p のアナグラムになるような開始位置 i をすべて(昇順で)返す。
+p が空、または s より長ければ []。窓をずらして文字数を更新し、O(len(s)) を目指す。
+
+関数シグネチャ
+def find_all_anagrams(s: str, p: str) -> list[int]:
+
+例
+(上記の Examples 参照)

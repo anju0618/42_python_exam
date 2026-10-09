@@ -1,0 +1,29 @@
+py_equal_split  [Medium]
+
+Assignment
+Return True if the positive integers in `nums` can be divided into two
+groups (every number in exactly one group) that have the same sum.
+
+Function signature
+def equal_split(nums: list[int]) -> bool:
+
+Examples
+Input
+equal_split([1,5,11,5])
+Output
+True
+Input
+equal_split([1,2,3,5])
+Output
+False
+
+---------- 和訳 ----------
+課題
+正の整数のリスト `nums` を(各要素をどちらか一方に入れて)合計が等しい2グループに
+分けられるなら True。
+
+関数シグネチャ
+def equal_split(nums: list[int]) -> bool:
+
+例
+(上記の Examples 参照)

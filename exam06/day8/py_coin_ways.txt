@@ -1,0 +1,35 @@
+py_coin_ways  [Medium]
+
+Assignment
+Return the number of different COMBINATIONS of coins that make exactly
+`amount`. Each coin value can be used any number of times; the order does
+not matter ([1,2] and [2,1] count as one combination).
+amount = 0 has exactly one combination (use no coins).
+
+Function signature
+def coin_ways(amount: int, coins: list[int]) -> int:
+
+Examples
+Input
+coin_ways(5, [1,2,5])
+Output
+4
+Input
+coin_ways(3, [2])
+Output
+0
+Input
+coin_ways(10, [10])
+Output
+1
+
+---------- 和訳 ----------
+課題
+ちょうど `amount` を作るコインの「組み合わせ」が何通りあるかを返す。各コインは何枚でも使え、
+順序は区別しない([1,2] と [2,1] は同じ)。amount = 0 は 1 通り(何も使わない)。
+
+関数シグネチャ
+def coin_ways(amount: int, coins: list[int]) -> int:
+
+例
+(上記の Examples 参照)

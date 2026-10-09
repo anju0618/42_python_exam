@@ -1,0 +1,38 @@
+py_task_order  [Medium]
+
+Assignment
+There are n tasks numbered 0 .. n-1. A pair [a, b] in `prereqs` means
+task b must be done before task a.
+
+Return an order in which all tasks can be done. When several tasks are
+available at the same time, always choose the smallest number.
+Return [] if no valid order exists (a cycle).
+
+Function signature
+def task_order(n: int, prereqs: list[list[int]]) -> list[int]:
+
+Examples
+Input
+task_order(2, [[1,0]])
+Output
+[0, 1]
+Input
+task_order(4, [[1,0],[2,0],[3,1],[3,2]])
+Output
+[0, 1, 2, 3]
+Input
+task_order(2, [[0,1],[1,0]])
+Output
+[]
+
+---------- 和訳 ----------
+課題
+タスクは 0〜n-1 の n 個。`prereqs` の [a, b] は「b を a より先にやる」の意味。
+全タスクをこなせる順序を返す。同時に選べるタスクが複数あるときは、
+常に番号が最小のものを選ぶ。順序が存在しない(循環)なら [] を返す。
+
+関数シグネチャ
+def task_order(n: int, prereqs: list[list[int]]) -> list[int]:
+
+例
+(上記の Examples 参照)

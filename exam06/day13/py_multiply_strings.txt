@@ -1,0 +1,31 @@
+py_multiply_strings  [Hard]
+
+Assignment
+`a` and `b` are non-negative integers written as strings (no leading
+zeros except "0" itself). Return their product as a string.
+Do NOT convert the whole strings with int() and do not use big-number
+tricks: do the schoolbook multiplication on digits.
+
+Function signature
+def multiply_strings(a: str, b: str) -> str:
+
+Examples
+Input
+multiply_strings("2", "3")
+Output
+"6"
+Input
+multiply_strings("123", "456")
+Output
+"56088"
+
+---------- 和訳 ----------
+課題
+a と b は文字列で書かれた非負整数(先頭ゼロなし、"0" 自身を除く)。積を文字列で返す。
+文字列全体を int() に変換してはいけない。筆算を桁ごとに実装すること。
+
+関数シグネチャ
+def multiply_strings(a: str, b: str) -> str:
+
+例
+(上記の Examples 参照)

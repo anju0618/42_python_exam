@@ -1,0 +1,36 @@
+py_shortest_cover  [Hard]
+
+Assignment
+Return the shortest substring of `s` that contains every character of `t`,
+counting duplicates (t = "aa" needs two 'a'). If several substrings have the
+same shortest length, return the leftmost one.
+Return "" if there is none, or if `t` is empty.
+
+Function signature
+def shortest_cover(s: str, t: str) -> str:
+
+Examples
+Input
+shortest_cover("ADOBECODEBANC", "ABC")
+Output
+"BANC"
+Input
+shortest_cover("a", "a")
+Output
+"a"
+Input
+shortest_cover("a", "aa")
+Output
+""
+
+---------- 和訳 ----------
+課題
+`s` の部分文字列のうち、`t` の全文字を(重複も数えて)含む最短のものを返す
+(t="aa" なら 'a' が2個必要)。最短が複数あれば最も左のもの。
+無い場合、または `t` が空なら "" を返す。
+
+関数シグネチャ
+def shortest_cover(s: str, t: str) -> str:
+
+例
+(上記の Examples 参照)

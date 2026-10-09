@@ -1,0 +1,30 @@
+py_prefix_dictionary  [Medium]
+
+Assignment
+Implement a class PrefixDictionary (a trie).
+
+  insert(word)       store a word
+  search(word)       True if exactly this word was inserted
+  starts_with(prefix) True if some inserted word begins with prefix
+
+All words are lowercase letters. (Hint: each node holds children by letter.)
+
+Examples
+d = PrefixDictionary()
+d.insert("apple")
+d.search("apple")        -> True
+d.search("app")          -> False
+d.starts_with("app")     -> True
+d.insert("app")
+d.search("app")          -> True
+
+---------- 和訳 ----------
+課題
+クラス PrefixDictionary(トライ木)を実装する。
+  insert(word)         単語を登録する
+  search(word)         その単語そのものが登録済みなら True
+  starts_with(prefix)  prefix で始まる登録済み単語があれば True
+単語は小文字のみ。(ヒント: 各ノードが文字ごとの子を持つ)
+
+例
+(上記の Examples 参照)

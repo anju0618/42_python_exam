@@ -1,0 +1,32 @@
+py_min_wire  [Medium]
+
+Assignment
+Connect all `points` with wires so every point can reach every other one
+(possibly through other points). The cost of a wire between two points is
+their Manhattan distance |x1-x2| + |y1-y2|. Return the minimum total cost.
+(Prim or Kruskal. Do not use heapq.)
+
+Function signature
+def min_wire(points: list[list[int]]) -> int:
+
+Examples
+Input
+min_wire([[0,0],[2,2],[3,10],[5,2],[7,0]])
+Output
+20
+Input
+min_wire([[3,12],[-2,5],[-4,1]])
+Output
+18
+
+---------- 和訳 ----------
+課題
+全ての点を、どの2点も(他の点を経由してもよいので)つながるようにワイヤーでつなぐ。
+2点間のワイヤーの費用はマンハッタン距離 |x1-x2| + |y1-y2|。最小の総費用を返す。
+(Prim か Kruskal。heapq は使わない)
+
+関数シグネチャ
+def min_wire(points: list[list[int]]) -> int:
+
+例
+(上記の Examples 参照)

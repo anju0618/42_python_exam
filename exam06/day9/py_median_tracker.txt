@@ -1,0 +1,31 @@
+py_median_tracker  [Hard]
+
+Assignment
+Implement a class MedianTracker that receives numbers one by one.
+
+  add(num)    add a number
+  median()    return the median of all numbers added so far
+              (the middle value; the average of the two middle values if
+              the count is even). Assume at least one number was added.
+
+Idea: keep the smaller half and the larger half in two heaps (build them
+yourself, see py_min_heap). Re-sorting on every call is too slow for big input.
+
+Examples
+m = MedianTracker()
+m.add(5); m.add(15)
+m.median()   -> 10
+m.add(1)
+m.median()   -> 5
+
+---------- 和訳 ----------
+課題
+数を1つずつ受け取るクラス MedianTracker を実装する。
+  add(num)   数を追加する
+  median()   これまでに追加した全ての数の中央値を返す(個数が偶数なら中央2つの平均)。
+             1つ以上追加済みとする。
+ヒント: 小さい半分と大きい半分を2つのヒープで持つ(自作。py_min_heap を参照)。
+毎回ソートし直すと大きい入力では遅い。
+
+例
+(上記の Examples 参照)

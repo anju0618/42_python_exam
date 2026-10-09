@@ -1,0 +1,33 @@
+py_valid_search_tree  [Medium]
+
+Assignment
+A tree is written as a tuple (value, left, right). An empty tree is None.
+Example: (1, (2, None, None), (3, None, None)) is 1 with children 2 and 3.
+
+Return True if the tree is a valid binary search tree: for every node, all
+values in its left subtree are STRICTLY smaller and all values in its right
+subtree are STRICTLY larger. An empty tree is valid.
+
+Function signature
+def valid_search_tree(root) -> bool:
+
+Examples
+Input
+valid_search_tree((2,(1,None,None),(3,None,None)))
+Output
+True
+Input
+valid_search_tree((5,(1,None,None),(4,(3,None,None),(6,None,None))))
+Output
+False
+
+---------- 和訳 ----------
+課題
+木は (値, 左, 右) のタプル、空の木は None で表す。例: (1, (2, None, None), (3, None, None))
+二分探索木として正しければ True。どのノードも、左の部分木の値はすべて「より小さく」、右の部分木の値はすべて「より大きい」こと(等しい値は不可)。空の木は True。
+
+関数シグネチャ
+def valid_search_tree(root) -> bool:
+
+例
+(上記の Examples 参照)

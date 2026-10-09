@@ -1,0 +1,28 @@
+py_longest_unique_run  [Medium]
+
+Assignment
+Return the length of the longest substring of `s` that has no repeated
+character. Aim for O(n) with a sliding window.
+
+Function signature
+def longest_unique_run(s: str) -> int:
+
+Examples
+Input
+longest_unique_run("abcabcbb")
+Output
+3
+Input
+longest_unique_run("bbbbb")
+Output
+1
+
+---------- 和訳 ----------
+課題
+`s` の部分文字列のうち、同じ文字を含まない最長のものの長さを返す。スライディングウィンドウで O(n) を目指す。
+
+関数シグネチャ
+def longest_unique_run(s: str) -> int:
+
+例
+(上記の Examples 参照)

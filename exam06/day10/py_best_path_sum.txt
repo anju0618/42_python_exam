@@ -1,0 +1,33 @@
+py_best_path_sum  [Hard]
+
+Assignment
+A tree is written as a tuple (value, left, right). An empty tree is None.
+Example: (1, (2, None, None), (3, None, None)) is 1 with children 2 and 3.
+
+A path goes through connected nodes and uses each node at most once; it does
+NOT have to pass through the root, and has at least one node.
+Return the largest possible sum of the values on a path.
+
+Function signature
+def best_path_sum(root) -> int:
+
+Examples
+Input
+best_path_sum((1,(2,None,None),(3,None,None)))
+Output
+6
+Input
+best_path_sum((-10,(9,None,None),(20,(15,None,None),(7,None,None))))
+Output
+42
+
+---------- 和訳 ----------
+課題
+木は (値, 左, 右) のタプル、空の木は None で表す。例: (1, (2, None, None), (3, None, None))
+経路は、つながったノードをたどるもの(各ノードは最大1回、根を通らなくてよい、最低1ノード)。経路上の値の合計の最大値を返す。
+
+関数シグネチャ
+def best_path_sum(root) -> int:
+
+例
+(上記の Examples 参照)

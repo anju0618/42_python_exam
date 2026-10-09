@@ -1,0 +1,35 @@
+py_cache_keeper  [Hard]
+
+Assignment
+Implement a class CacheKeeper(capacity), a Least-Recently-Used cache.
+
+  get(key)         return the value, or -1 if key is not in the cache.
+                   (A successful get makes the key "most recently used".)
+  put(key, value)  insert or update. It also becomes most recently used.
+                   If the cache is over capacity, remove the least
+                   recently used key.
+
+Aim for O(1) per operation (dict + doubly linked list). Do not use
+collections.OrderedDict.
+
+Examples
+c = CacheKeeper(2)
+c.put(1, 1); c.put(2, 2)
+c.get(1)       -> 1
+c.put(3, 3)    # key 2 is evicted
+c.get(2)       -> -1
+c.put(4, 4)    # key 1 is evicted
+c.get(1)       -> -1
+c.get(3)       -> 3
+c.get(4)       -> 4
+
+---------- 和訳 ----------
+課題
+クラス CacheKeeper(capacity)(LRU キャッシュ)を実装する。
+  get(key)         値を返す。無ければ -1。成功した get は「最近使った」扱いになる。
+  put(key, value)  追加または更新。これも「最近使った」扱い。
+                   容量を超えたら、最も長く使われていないキーを削除する。
+各操作 O(1) を目指す(dict + 双方向連結リスト)。collections.OrderedDict は使わない。
+
+例
+(上記の Examples 参照)

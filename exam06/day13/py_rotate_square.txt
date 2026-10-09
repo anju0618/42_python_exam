@@ -1,0 +1,24 @@
+py_rotate_square  [Medium]
+
+Assignment
+Return the n x n matrix rotated 90 degrees clockwise (as a new matrix;
+the input must not be changed).
+
+Function signature
+def rotate_square(matrix: list[list[int]]) -> list[list[int]]:
+
+Examples
+Input
+rotate_square([[1,2,3],[4,5,6],[7,8,9]])
+Output
+[[7, 4, 1], [8, 5, 2], [9, 6, 3]]
+
+---------- 和訳 ----------
+課題
+n×n の行列を時計回りに90度回転したものを(新しい行列として)返す。入力は変更しないこと。
+
+関数シグネチャ
+def rotate_square(matrix: list[list[int]]) -> list[list[int]]:
+
+例
+(上記の Examples 参照)

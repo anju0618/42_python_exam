@@ -1,0 +1,32 @@
+py_tree_levels  [Medium]
+
+Assignment
+A tree is written as a tuple (value, left, right). An empty tree is None.
+Example: (1, (2, None, None), (3, None, None)) is 1 with children 2 and 3.
+
+Return the values level by level (top to bottom), each level from left to
+right. An empty tree gives [].
+
+Function signature
+def tree_levels(root) -> list[list[int]]:
+
+Examples
+Input
+tree_levels((3,(9,None,None),(20,(15,None,None),(7,None,None))))
+Output
+[[3], [9, 20], [15, 7]]
+Input
+tree_levels(None)
+Output
+[]
+
+---------- 和訳 ----------
+課題
+木は (値, 左, 右) のタプル、空の木は None で表す。例: (1, (2, None, None), (3, None, None))
+木の値を上の段から順に、各段は左から右へ並べて返す。空の木は []。
+
+関数シグネチャ
+def tree_levels(root) -> list[list[int]]:
+
+例
+(上記の Examples 参照)
